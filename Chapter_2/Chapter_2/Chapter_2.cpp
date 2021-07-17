@@ -76,11 +76,61 @@ void exercise17() {
     cout << i << " " << ri << endl;
 }
 
+void exercise18() {
+    int i, *p1 = &i;
+    cout << "Enter i value: ";
+    cin >> i;
+    cout << "p1 = " << *p1 << " i also = " << i << endl;
+}
+
+void exercise20() {
+    int i = 42;
+    int *p1 = &i;
+    *p1 = *p1 * *p1;
+    cout << *p1 << endl; // 42 * 42 = 1764
+}
+
+void exercise21() {
+    int i = 0;
+    // (a) double* dp = &i; double to int will be error
+    // (b) int *ip = i; int to int * will be error
+    int *p = &i; // ~ p = i;
+
+}
+
+
+void exercise25() {
+    // (a) int* ip, &rp = ip; It will be right: int* ip, *&rp = ip;
+    int i, *ip = 0; // (b) i - variable int type, ip - pointer
+    int* ip2, ip3;  // (c) ip2 - pointer, ip3 - varible 
+}
+
+void exercise26() {
+    // (a) const int buf; Invalid, constant must have a value  
+    int cnt = 0;
+    const int sz = cnt;
+    ++cnt; 
+    // (d) ++sz; Constant cannot be changed 
+}
+
+void exercise27() {
+    // (a) int i = -1, &r = 0; Invalid, reference non-constant value;
+    // (b) int *const p2 = &i2; i2 variable does not exist 
+    const int i = -1, &r = 0; 
+    // (d) const int* const p3 = &i2; i2 variable does not exist 
+    // (e) const int* p1 = &i2; i2 variable does not exist 
+    // (f) const int &const r2; initializer required 
+    // (g) const int i2 = i, &r = i; // multiple initialization 
+}
+
 int main()
 {
     cout << "Exercise 3: " << endl;  exercise3();
     cout << "Exercise 9: " << endl;  exercise9();
     cout << "Exercise 13: " << endl;  exercise13();
     cout << "Exercise 17: " << endl;  exercise17();
- 
+    cout << "Exercise 18: " << endl;  exercise18();
+    cout << "Exercise 20: " << endl;  exercise20();
+    
+
 }
