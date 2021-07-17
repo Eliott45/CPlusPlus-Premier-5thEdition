@@ -1,3 +1,6 @@
 ﻿  Chapter_2.cpp
 N:\Eliott_Alderson\study\С++\Books\CPlus_Primer_Exercises\Chapter_2\Chapter_2\Chapter_2.cpp(34,9): warning C4101: 'iy': unreferenced local variable
+N:\Eliott_Alderson\study\С++\Books\CPlus_Primer_Exercises\Chapter_2\Chapter_2\Chapter_2.cpp(40,9): warning C4101: '_': unreferenced local variable
+N:\Eliott_Alderson\study\С++\Books\CPlus_Primer_Exercises\Chapter_2\Chapter_2\Chapter_2.cpp(68,9): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+N:\Eliott_Alderson\study\С++\Books\CPlus_Primer_Exercises\Chapter_2\Chapter_2\Chapter_2.cpp(69,10): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   Chapter_2.vcxproj -> N:\Eliott_Alderson\study\С++\Books\CPlus_Primer_Exercises\Chapter_2\Debug\Chapter_2.exe
