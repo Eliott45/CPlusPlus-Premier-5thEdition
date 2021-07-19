@@ -123,6 +123,66 @@ void exercise27() {
     // (g) const int i2 = i, &r = i; // multiple initialization 
 }
 
+void exercise30_31() {
+    int i;
+
+    const int v2 = 0;  // top-level const 
+    int v1 = v2; 
+    int *p1 = &v1, & r1 = v1;
+    const int *p2 = &v2, *const p3 = &i, &r2 = v2;
+    // p2 - low-level const, p3 - low-level and top-level const, r2 - low-level const
+
+    r1 = v2; 
+    // p1 = v2; // low-level const doesn't match 
+    p2 = p1;  
+    //p1 = p3;  // low-level const doesn't match
+    p2 = p3;  
+}
+
+void exercise32() {
+    //int null = 0, *p = null;  
+    int *p = nullptr;
+}
+
+void exercise33_34() {
+    int i = 0, &r = i;
+    auto a = r; // int
+    
+    const int ci = i, & cr = ci;
+    auto b = ci; // int 
+    auto c = cr; // int
+    auto d = &i; // int*
+    auto e = &ci; // const int*
+
+    const auto f = ci; // const int
+
+    auto &g = ci; // const int&
+
+    cout << "a before: " << a << endl;
+    a = 42;
+    cout << "a after: " << a << endl;
+
+    cout << "b before: " << b << endl;
+    b = 42;
+    cout << "b after: " << b << endl;
+
+    cout << "c before: " << c << endl;
+    c = 42;
+    cout << "c after: " << c << endl;
+
+    cout << "d = " << d << endl;
+    cout << "e = " << e << endl;
+    cout << "f = " << f << endl;
+    cout << "g = " << g << endl;
+    /* Error
+    * d = 42;
+    * e = 42;
+    * f = 42;
+    * g = 42;
+    */
+}
+
+
 int main()
 {
     cout << "Exercise 3: " << endl;  exercise3();
@@ -131,6 +191,7 @@ int main()
     cout << "Exercise 17: " << endl;  exercise17();
     cout << "Exercise 18: " << endl;  exercise18();
     cout << "Exercise 20: " << endl;  exercise20();
+    cout << "Exercise 33-34: " << endl;  exercise33_34();
     
 
 }
