@@ -179,8 +179,32 @@ void exercise33_34() {
     * e = 42;
     * f = 42;
     * g = 42;
-    */
+    */ 
 }
+
+
+void exercise35() {
+    const int i = 42; // const int
+    auto j = i; // int 
+    const auto &k = i; // const int
+    auto *p = &i; // const int *
+    const auto j2 = i, &k2 = i; // const int, const int &
+}
+
+void exercise36() {
+    int a = 3, b = 4;
+    decltype(a) c = a; // int c = 3
+    decltype((b)) d = a; //int & to a, d = 3
+    ++c; // 4
+    ++d; // 4, a = 4
+}
+
+void exercise37() {
+    int a = 3, b = 4;
+    decltype(a) c = a; // int c = 3
+    decltype(a = b) d = a; // int & to a
+}
+
 
 
 int main()
