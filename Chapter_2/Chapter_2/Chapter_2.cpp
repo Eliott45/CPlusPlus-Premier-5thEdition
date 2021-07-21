@@ -1,4 +1,6 @@
 ﻿#include <iostream>
+#include <string>
+#include "Sales_data.h" // exercise 42
 
 using namespace std;
 
@@ -205,6 +207,74 @@ void exercise37() {
     decltype(a = b) d = a; // int & to a
 }
 
+void exercise38() {
+    int i1 = 5;
+    auto a1 = i1; // int
+    decltype(i1) b; // int
+
+    const int i2 = 10;
+    auto a2 = i2;          // int
+    decltype(i2) d3 = 42;  // const int
+}
+
+/* Exercise 39
+* struct Foo {
+*
+* } 
+* without ";" will be error
+*/
+
+
+// Exercise 40-41
+
+
+void exercise1_20() {
+    Sales_data item; 
+    double price;
+    cin >> item.bookNo >> item.units_sold >> price;
+    item.revenue = item.units_sold * price;
+    cout << item.bookNo << " " << item.units_sold << " " << item.revenue << endl;
+    
+}
+
+void exercise1_21() {
+    Sales_data item1, item2;
+    double price;
+
+    cin >> item1.bookNo >> item1.units_sold >> price;
+    item1.revenue = item1.units_sold * price;
+
+    cin >> item2.bookNo >> item2.units_sold >> price;
+    item2.revenue = item2.units_sold * price;
+
+    if (item1.bookNo == item2.bookNo) {
+        unsigned totalSold = item1.units_sold + item2.units_sold;
+        cout << (item1.revenue + item2.revenue) / (totalSold) << endl;
+    }
+    else {
+        cout << "ISBN is different" << endl;
+    }
+}
+
+void exercise1_22() {
+    Sales_data total, item;
+    double price;
+
+    cin >> total.bookNo >> total.units_sold >> price;
+    total.revenue = total.units_sold * price;
+
+    do {
+        cin >> item.bookNo >> item.units_sold >> price;
+        item.revenue = item.units_sold * price;
+        if (total.bookNo == item.bookNo) {
+            total.units_sold += item.units_sold;
+            total.revenue += item.revenue;
+        }
+        
+    } while (total.bookNo == item.bookNo);
+
+    cout << total.units_sold << " " << total.revenue << endl;
+}
 
 
 int main()
@@ -215,7 +285,10 @@ int main()
     cout << "Exercise 17: " << endl;  exercise17();
     cout << "Exercise 18: " << endl;  exercise18();
     cout << "Exercise 20: " << endl;  exercise20();
-    cout << "Exercise 33-34: " << endl;  exercise33_34();
-    
+    cout << "Exercise 33-34: " << endl; exercise33_34();
+    cout << "Exercise 40-41: " << endl; 
+    exercise1_20();
+    exercise1_21();
+    exercise1_22();
 
 }
