@@ -153,6 +153,111 @@ void exercise15() {
     cout << endl;
 }
 
+void printIntVector(vector<int> v) {
+    for (const auto num : v) {
+        cout << num << " ";
+    }
+    cout << endl;
+}
+
+void printStringVector(vector<string> v) {
+    for (const auto word : v) {
+        cout << word << " ";
+    }
+    cout << endl;
+}
+
+
+void exercise16() {
+    vector<int> v1; 
+    cout << "v1:" << endl; printIntVector(v1);
+    vector<int> v2(10);
+    cout << "v2:" << endl; printIntVector(v2);
+    vector<int> v3(10, 42);
+    cout << "v3:" << endl; printIntVector(v3);
+    vector<int> v4{ 10 }; 
+    cout << "v4:" << endl; printIntVector(v4);
+    vector<int> v5{ 10,42 }; 
+    cout << "v5:" << endl; printIntVector(v5);
+    vector<string> v6{ 10 }; 
+    cout << "v6:" << endl; printStringVector(v6);
+    vector<string> v7{ 10, "hi" };
+    cout << "v7:" << endl; printStringVector(v7);
+}
+
+void exercise17() {
+    vector<string> v;
+    string s;
+    int maxWords = 32, i = 0;
+
+    while (i < maxWords && cin >> s) {
+        v.push_back(s);
+        i++;
+    }
+
+    for (auto &str : v) {
+        for (auto& c : str) {
+            c = toupper(c);
+        }
+    }
+
+    for (decltype(v.size()) i = 0; i != v.size(); ++i) {
+        cout << v[i] << '\t';
+        if ((i + 1) % 8 == 0) {
+            cout << endl;
+        }
+    }
+}
+
+void exercise18() {
+    vector<int> ivec;
+    // ivec[0] = 42;
+    ivec.push_back(42);
+    cout << ivec[0] << endl;
+}
+
+void exercise19() {
+    vector<int> v1(10, 42); // The best method 
+    vector<int> v2{ 42, 42, 42, 42, 42, 42, 42, 42, 42, 42 };
+    vector<int> v3;
+    for (int i = 0; i != 10; i++) {
+        v3.push_back(42);
+    }
+}
+
+void exercise20() {
+    vector<int> v;
+    int num;
+    int maxNums = 10, i = 0;
+
+    while (i < maxNums && cin >> num) {
+        v.push_back(num);
+        i++;
+    }
+
+    cout << "Vector is: " << endl;
+
+    for (i = 0; i < v.size(); i ++) {
+        cout << v[i] << " ";
+    }
+
+    cout << endl;
+
+    cout << "Sum of pairs: " << endl;
+
+    for (i = 0; i < v.size(); i+=2) {
+        cout << v[i] + v[i + 1] << " ";
+    }
+
+    cout << endl;
+
+    for (i = 0; i < v.size(); i++) {
+        cout << v[i] + v[(v.size() - 1) - i] << " ";
+    }
+}
+
+
+
 int main()
 {
     cout << "Exercise 1: Sum = " << exercise1_9() << endl;
@@ -166,5 +271,9 @@ int main()
     cout << "Exercise 10: " << endl; exercise10();
     // cout << "Exercise 14: " << endl; exercise14();
     // cout << "Exercise 15: " << endl; exercise15();
+    cout << "Exercise 16: " << endl; exercise16();
+    // cout << "Exercise 17: " << endl; exercise17();
+    cout << "Exercise 18: " << endl; exercise18();
+    // cout << "Exercise 20: " << endl; exercise20();
 }
 
