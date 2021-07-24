@@ -256,7 +256,56 @@ void exercise20() {
     }
 }
 
+void exercise21() {
+    vector<int> v;
+    int num;
+    int maxNums = 10, i = 0;
 
+    while (i < maxNums && cin >> num) {
+        v.push_back(num);
+        i++;
+    }
+
+    cout << "Vector is: " << endl;
+
+    for (auto j = v.cbegin(); j != v.cend(); j++) {
+        cout << *j << " ";
+    }
+
+    cout << endl;
+
+    cout << "Sum of pairs: " << endl;
+
+    for (auto j = v.cbegin(); j != v.cend(); j += 2) {
+        cout << *j + *(j + 1) << " ";
+    }
+
+    cout << endl;
+
+    for (auto j = v.cbegin(); j != v.cend(); j++) {
+        cout << *j + *(v.cend() - 1 - (j - v.cbegin())) << " ";
+    }  
+}
+
+void exercise25() { 
+    vector<unsigned> scores(11, 0);
+    unsigned grade;
+    int maxGrades = 10, i = 0;
+
+    while (maxGrades > i && cin >> grade) {
+        ++*(scores.begin() + grade / 10);
+        i++;
+    }
+
+    for (const auto& grade : scores) {
+        cout << grade << ' ';
+    } 
+    cout << endl;
+}
+
+/* Exercise 26
+* Operator + does not exist  for two iterators.
+*/
 
 int main()
 {
@@ -275,5 +324,7 @@ int main()
     // cout << "Exercise 17: " << endl; exercise17();
     cout << "Exercise 18: " << endl; exercise18();
     // cout << "Exercise 20: " << endl; exercise20();
+    // cout << "Exercise 21: " << endl; exercise21();
+    // cout << "Exercise 25: " << endl; exercise25();
 }
 
