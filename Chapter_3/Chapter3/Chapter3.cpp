@@ -304,7 +304,34 @@ void exercise25() {
 }
 
 /* Exercise 26
-* Operator + does not exist  for two iterators.
+* mid = beg  + (end - beg) / 2;
+* mid = (beg + end) / 2; // Operator + does not exist  for two iterators.
+*/
+
+void exercise27() {
+    unsigned buf_size = 1024;
+    // (a) int ia1[buf_size]; // Error buf_size not constexpr
+    int ia2[4 * 7 - 14]; // (b)
+    // int ia3[txt_size]; // (c) Error txt_size not constexpr
+    // char st[11] = "fundamental"; // (d) String length must be 12 
+}
+
+/* Exercise 28
+*
+*string sa[10];  // ten elements of empty string
+*int    ia[10];  // ten elements of 0
+*
+*int main() {
+*  string sa2[10];  // ten elements of empty string
+*  int    ia2[10];  // ten elements of undefined value
+*}
+*
+*/
+
+/* Exercise 29
+* It is necessary to set the size of the array in advance
+* Impossibility to remove or add others without shifting 
+* The threat of going beyond the boundaries of the array
 */
 
 int main()
