@@ -431,6 +431,110 @@ void exercise36() {
     }
 }
 
+void exercise37() {
+    const char ca[] = { 'h','e','l','l','o'};
+    const char* cp = ca;
+    while (*cp) {
+        cout << *cp;
+        ++cp;
+    }
+    cout << endl;
+    /*
+    Since there is no null character at the end, 
+    the program will print all the characters in ca and continue 
+    print whatever in memory until it find a null character.
+    */
+}
+
+/* Exercise 38
+* There is no point in adding the addresses of variables 
+*/
+
+
+void exercise39() {
+    string s1, s2;
+    cout << "Enter two strings: ";
+    cin >> s1 >> s2;
+
+    if (s1 == s2) {
+        cout << "Strings are equal" << endl;
+    }
+    else {
+        cout << "Strings are not equal" << endl;
+    }
+    
+    
+    char cs1[100], cs2[100];
+    cout << "Enter two strings (C): ";
+    cin >> cs1 >> cs2;
+    if (!strcmp(cs1, cs2)) {
+        cout << "C-style strings are equal" << endl;
+    }
+    else {
+        cout << "C-style strings are not equal" << endl;
+    }
+}
+
+void exercise40() {
+    char s1[] = "Eliott", s2[] = "Alderson", s3[16];
+    strcpy_s(s3, s1);
+    strcat_s(s3, s2);
+    cout << s3 << endl;
+}
+
+void exercise41() {
+    int arr[] = { 1, 2, 3, 4, 5 };
+    vector<int> ivec(begin(arr), end(arr));
+}
+
+void exercise42() {
+    vector<int> ivec{ 1,2,3,4,5 };
+    int arr[5];
+    for (int i = 0; i < 5; i++) {
+        arr[i] = ivec[i];
+    }
+}
+
+void exercise43() {
+    constexpr size_t ia_row = 3;
+    constexpr size_t ia_col = 3;
+    int ia[ia_row][ia_col] = {
+      {0, 1, 2},
+      {3, 4, 5},
+      {6, 7, 8}
+    };
+
+    cout << "Using a serial operator:" << endl;
+
+    for (const int(&row)[ia_col] : ia) {
+        for (const int& col : row) {
+            cout << col << '\t';
+        }
+        cout << endl;
+    }
+
+    cout << "Using indexing:" << endl;
+
+    for (size_t i = 0; i < ia_row; i++) {
+        for (size_t j = 0; j < ia_col; j++) {
+            cout << ia[i][j] << '\t';
+        }
+        cout << endl;
+    }
+
+    cout << "Using pointers:" << endl;
+
+    using int_array = int[ia_col];
+
+    for (int_array* p = ia; p < ia + ia_row; p++) {
+        for (int* q = *p; q < *p + ia_col; q++) {
+            cout << *q << '\t';
+        }
+        cout << endl;
+    }
+}
+
+
 int main()
 {
     cout << "Exercise 1: Sum = " << exercise1_9() << endl;
@@ -455,5 +559,10 @@ int main()
     cout << "Exercise 32: " << endl; exercise32();
     cout << "Exercise 35: " << endl; exercise35();
     // cout << "Exercise 35: " << endl; exercise36();
+    // cout << "Exercise 37: " << endl; exercise37();
+    // cout << "Exercise 39: " << endl; exercise39();
+    cout << "Exercise 40: " << endl; exercise40();
+    cout << "Exercise 43: " << endl; exercise43();
+
 }
 
