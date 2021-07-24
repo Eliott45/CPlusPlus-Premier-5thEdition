@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <string>
 #include <vector>
+#include <iterator>
 
 using namespace std;
 using std::vector;
@@ -387,6 +388,49 @@ void exercise32() {
     cout << endl;
 }
 
+void exercise35() {
+    int a[10];
+
+    for (int i = 0; i < 10; i++) {
+        a[i] = i + 1;
+        cout << a[i] << " ";
+    }
+
+    cout << endl;
+
+    for (int* bg = begin(a), *ed = end(a); bg < ed; bg++) {
+        *bg = 0;
+        cout << *bg << " ";
+    }
+
+    cout << endl;
+}
+
+void exercise36() {
+    int a[5], b[5];
+
+    for (int i = 0; i < 5; i++) {
+        cout << "Enter " << i << " value of array A: ";
+        cin >> a[i];
+        cout << "Enter " << i << " value of array B: ";
+        cin >> b[i];
+    }
+
+    cout << endl;
+
+    int i = 0;
+    for (; i < 5; i++) {
+        if (a[i] != b[i]) break;
+    }
+
+    if (i == 5) {
+        cout << "Arrays are identical" << endl;
+    }
+    else {
+        cout << "Arrays are not identical" << endl;
+    }
+}
+
 int main()
 {
     cout << "Exercise 1: Sum = " << exercise1_9() << endl;
@@ -409,7 +453,7 @@ int main()
     cout << "Exercise 30: " << endl; exercise30();
     cout << "Exercise 31: " << endl; exercise31();
     cout << "Exercise 32: " << endl; exercise32();
-
-
+    cout << "Exercise 35: " << endl; exercise35();
+    // cout << "Exercise 35: " << endl; exercise36();
 }
 
