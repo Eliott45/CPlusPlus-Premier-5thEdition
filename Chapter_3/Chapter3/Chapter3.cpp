@@ -1,7 +1,9 @@
 ﻿#include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
+using std::vector;
 
 // Exercise 1 in Chapter 3
 int exercise1_9() {
@@ -106,6 +108,22 @@ void exercise11() {
     }
 }
 
+void exercise12() {
+    vector<vector<int>> ivec; // (a) Correct, vector of vector of int
+    // vector<string> svec = ivec; // (b) Error type of vector doesn't match 
+    vector<string> svec(10, "null"); // (c) Vector containing 10 strings "null" 
+}
+
+void exercise13() {
+    vector<int> v1; // (a) - containing 0 elements
+    vector<int> v2(10); // (b) - containing 10 elements, the values of all elements is 0 
+    vector<int> v3(10, 42); // (c) containing 10 elements, the values of all elements is 42
+    vector<int> v4{ 10 }; // (d) containing 1 element, the value of elements is 10;
+    vector<int> v5{ 10,42 }; // (e) containing 2 elements, 10 and 42;
+    vector<string> v6{ 10 }; // (f) containing 10 elements, empty strings
+    vector<string> v7{ 10, "hi" }; // (g) containing 10 element, the value of elements is "hi";
+}
+
 int main()
 {
     cout << "Exercise 1: Sum = " << exercise1_9() << endl;
@@ -117,6 +135,5 @@ int main()
     cout << "Exercise 8: " << endl; exercise8();
     cout << "Exercise 9: " << endl; exercise9();
     cout << "Exercise 10: " << endl; exercise10();
-
 }
 
