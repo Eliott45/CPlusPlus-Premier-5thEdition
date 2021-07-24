@@ -124,6 +124,35 @@ void exercise13() {
     vector<string> v7{ 10, "hi" }; // (g) containing 10 element, the value of elements is "hi";
 }
 
+void exercise14() {
+    vector<int> v1;
+    int i;
+    while (cin >> i) {
+        v1.push_back(i);
+    }
+
+    for (const auto num : v1) {
+        cout << num << " ";
+    }
+
+    cout << endl;
+}
+
+void exercise15() {
+    vector<string> v1;
+    string i;
+
+    while (cin >> i) {
+        v1.push_back(i);
+    }
+
+    for (auto word : v1) {
+        cout << word << " ";
+    }
+
+    cout << endl;
+}
+
 int main()
 {
     cout << "Exercise 1: Sum = " << exercise1_9() << endl;
@@ -135,5 +164,7 @@ int main()
     cout << "Exercise 8: " << endl; exercise8();
     cout << "Exercise 9: " << endl; exercise9();
     cout << "Exercise 10: " << endl; exercise10();
+    // cout << "Exercise 14: " << endl; exercise14();
+    // cout << "Exercise 15: " << endl; exercise15();
 }
 
