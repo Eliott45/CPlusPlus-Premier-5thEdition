@@ -2,4 +2,5 @@
 N:\Eliott_Alderson\study\С++\Books\CPlus_Primer_Exercises\Chapter_3\Chapter3\Chapter3.cpp(240,19): warning C4018: '<': signed/unsigned mismatch
 N:\Eliott_Alderson\study\С++\Books\CPlus_Primer_Exercises\Chapter_3\Chapter3\Chapter3.cpp(248,19): warning C4018: '<': signed/unsigned mismatch
 N:\Eliott_Alderson\study\С++\Books\CPlus_Primer_Exercises\Chapter_3\Chapter3\Chapter3.cpp(254,19): warning C4018: '<': signed/unsigned mismatch
+N:\Eliott_Alderson\study\С++\Books\CPlus_Primer_Exercises\Chapter_3\Chapter3\Chapter3.cpp(314,9): warning C4101: 'ia2': unreferenced local variable
   Chapter3.vcxproj -> N:\Eliott_Alderson\study\С++\Books\CPlus_Primer_Exercises\Chapter_3\Debug\Chapter3.exe

@@ -334,6 +334,59 @@ void exercise27() {
 * The threat of going beyond the boundaries of the array
 */
 
+void exercise30() {
+    constexpr size_t array_size = 10;
+    int ia[array_size];
+
+    /*
+    for (size_t ix = 1; ix <= array_size; ++ix) {
+        ia[ix] = ix;
+    }
+    */
+    
+    for (int i = 0; i < array_size; i++) {
+        ia[i] = i + 1;
+        cout << ia[i] << " ";
+    }
+    
+    cout << endl;
+}
+
+void exercise31() {
+    int a[10];
+
+    for (int i = 0; i < 10; i++) {
+        a[i] = i;
+        cout << a[i] << " ";
+    }
+    
+    cout << endl;
+}
+
+void exercise32() {
+    int a1[10], a2[10];
+
+    cout << "Array: " << endl;
+
+    for (int i = 0; i < 10; i++) {
+        a1[i] = i;
+        cout << a1[i] << " ";
+        a2[i] = a1[i];
+    }
+
+    cout << endl;
+
+    cout << "Vector: " << endl;
+
+    vector<int> v; 
+    for (int i = 0; i < 10; i++) {
+        v.push_back(a2[i]);
+        cout << v[i] << " ";
+    }
+
+    cout << endl;
+}
+
 int main()
 {
     cout << "Exercise 1: Sum = " << exercise1_9() << endl;
@@ -353,5 +406,10 @@ int main()
     // cout << "Exercise 20: " << endl; exercise20();
     // cout << "Exercise 21: " << endl; exercise21();
     // cout << "Exercise 25: " << endl; exercise25();
+    cout << "Exercise 30: " << endl; exercise30();
+    cout << "Exercise 31: " << endl; exercise31();
+    cout << "Exercise 32: " << endl; exercise32();
+
+
 }
 
