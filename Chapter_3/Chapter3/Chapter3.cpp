@@ -52,11 +52,71 @@ void exercise5() {
     cout << total << endl;
 }
 
+void exercise6() {
+    string word;
+    if (cin >> word) {
+        for (auto &c : word) {
+            c = 'X';
+        }
+    }
+    cout << word << endl;
+}
+
+void exercise7() {
+    string word;
+    if (cin >> word) {
+        for (char &c : word) {
+            c = 'X';
+        }
+    }
+    cout << word << endl;
+}
+
+void exercise8() {
+    string word;
+    if (cin >> word) {
+        string::size_type pos = 0; 
+        while (pos != word.size()) {
+            word[pos++] = 'X';
+        }
+    }
+    cout << word << endl;
+}
+
+void exercise9() {
+    string s;
+    cout << s[0] << endl; // The index is out of range, result is undefined.
+}
+
+void exercise10() {
+    string s;
+    cin >> s;
+    for (const auto& c : s) {
+        if (!ispunct(c)) {
+            cout << c;
+        }
+    }
+    cout << endl;
+}
+
+void exercise11() {
+    const string s = "Keep out!";
+    for (auto& c : s) {
+        // It works
+    }
+}
+
 int main()
 {
     cout << "Exercise 1: Sum = " << exercise1_9() << endl;
     // cout << "Exercise 2: " << endl; exercise2();
     cout << "Exercise 4: " << endl; exercise4();
     // cout << "Exercise 5: " << endl; exercise5();
+    cout << "Exercise 6: " << endl; exercise6();
+    cout << "Exercise 7: " << endl; exercise7();
+    cout << "Exercise 8: " << endl; exercise8();
+    cout << "Exercise 9: " << endl; exercise9();
+    cout << "Exercise 10: " << endl; exercise10();
+
 }
 
