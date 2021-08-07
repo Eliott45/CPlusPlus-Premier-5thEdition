@@ -44,6 +44,48 @@ void exercise7() {
     cout << b - 1 << endl;
 }
 
+/* Exercise 8
+* The logical AND and OR operators follow the short-circuit evaluation strategy. Which means:
+* they always evaluate their left operand before the right,
+* the right operand is evaluated if and only if the left operand does not determine the result.
+* The equality operator evaluates both the left operand and the right operand, then compares those values. 
+* The order of evaluation of the two operands is undefined.
+*/
+
+/// <summary>
+/// The condition cp && *cp means if cp is not a null pointer and the object pointed by cp is not null, 0 or can be converted to false.
+/// </summary>
+int exercise9() {
+    const char* cp = "Hello World";
+    if (cp && *cp) {
+        return 1;
+    }
+    else {
+        return 0;
+    }
+}
+
+void exercise10() {
+    int i;
+    while (cin >> i && i != 42);
+}
+
+void exercise11() {
+    int a, b, c, d;
+    cin >> a >> b >> c >> d;
+    if (a > b && b > c && c > d) {
+        cout << "true" << endl;
+    }
+    else {
+        cout << "false" << endl;
+    }
+}
+
+/* Exercise 12
+* i != j < k
+* j < k is bool
+* i != true|false is i != 1|0
+*/
 
 int main()
 {
@@ -52,4 +94,8 @@ int main()
     cout << "Exercise 5: " << endl; exercise5();
     // cout << "Exercise 6: " << endl; cout << exercise6() << endl;
     cout << "Exercise 7: " << endl; exercise7();
+    cout << "Exercise 9: " << exercise9() << endl;
+    // cout << "Exercise 10: " << endl; exercise10();
+    // cout << "Exercise 11: " << endl; exercise11();
+
 }
