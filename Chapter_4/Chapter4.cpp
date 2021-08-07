@@ -87,6 +87,32 @@ void exercise11() {
 * i != true|false is i != 1|0
 */
 
+void exercise13() {
+    int i; double d;
+    d = i = 3.5;
+    cout << " i = " << i << " d = " << d << endl;// d = 3, i = d
+    i = d = 3.5;
+    cout << " i = " << i << " d = " << d << endl; // i = 3, d = 3.5
+}
+
+/* Exercise 14
+* if (42 = i) will be error
+* if (i = 42) i will be = 42
+*/
+
+void exercise15() {
+    double dval; int ival; int* pi;
+    // dval = ival = pi = 0;
+    // the type of `pi` is `int *` which cannot be converted to `int`
+    dval = ival = 0;
+    pi = 0;
+}
+
+/* Exercise 16
+* (a) if(p = GetPtr() != 0) => ((p = getPtr()) != 0)
+* (b) if (i = 1024) => if (i == 1024) ?
+*/
+
 int main()
 {
     cout << "Exercise 1: " << exercise1() << endl;
@@ -97,5 +123,6 @@ int main()
     cout << "Exercise 9: " << exercise9() << endl;
     // cout << "Exercise 10: " << endl; exercise10();
     // cout << "Exercise 11: " << endl; exercise11();
+    cout << "Exercise 13: " << endl; exercise13();
 
 }

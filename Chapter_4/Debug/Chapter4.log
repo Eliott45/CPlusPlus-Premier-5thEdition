@@ -1,2 +1,4 @@
 ﻿  Chapter4.cpp
+N:\Eliott_Alderson\study\С++\Books\CPlus_Primer_Exercises\Chapter_4\Chapter4.cpp(92,13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+N:\Eliott_Alderson\study\С++\Books\CPlus_Primer_Exercises\Chapter_4\Chapter4.cpp(94,11): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   Chapter4.vcxproj -> N:\Eliott_Alderson\study\С++\Books\CPlus_Primer_Exercises\Chapter_4\Debug\Chapter4.exe
