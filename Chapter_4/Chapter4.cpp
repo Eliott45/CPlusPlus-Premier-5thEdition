@@ -210,10 +210,36 @@ void exercise27() {
     unsigned long ul1 = 3, ul2 = 7;
     cout << (ul1 & ul2) << endl; // (a) 3 
     cout << (ul1 | ul2) << endl; // (b) 7 
-    cout << (ul1 && ul2) << endl; // (c) 1 
-    cout << (ul1 || ul2) << endl; // (d) 1
-
+    cout << (ul1 && ul2) << endl; // (c) 1 (true)
+    cout << (ul1 || ul2) << endl; // (d) 1 (true)
 }
+
+void exercise28() {
+    cout << "char        " << sizeof(char) << endl;
+    cout << "wchar_t     " << sizeof(wchar_t) << endl;
+    cout << "char16_t    " << sizeof(char16_t) << endl;
+    cout << "char32_t    " << sizeof(char32_t) << endl;
+    cout << "short       " << sizeof(short) << endl;
+    cout << "int         " << sizeof(int) << endl;
+    cout << "long        " << sizeof(long) << endl;
+    cout << "long long   " << sizeof(long long) << endl;
+    cout << "float       " << sizeof(float) << endl;
+    cout << "double      " << sizeof(double) << endl;
+    cout << "long double " << sizeof(long double) << endl;
+}
+
+void exercise29() {
+    int x[10]; int* p = x;
+    cout << sizeof(x) / sizeof(*x) << endl; // 10
+    cout << sizeof(p) / sizeof(*p) << endl; // 1
+}
+
+/* Exercise 30
+* (a) sizeof(x) + y 
+* (b) sizeof(p->mem[i]) 
+* (c) sizeof(a) < b 
+* (d) sizeof(f())
+*/
 
 int main()
 {
@@ -230,5 +256,7 @@ int main()
     // cout << "Exercise 22: " << endl; exercise22();
     cout << "Exercise 23: " << endl; exercise23();
     cout << "Exercise 27: " << endl; exercise27();
+    cout << "Exercise 28: " << endl; exercise28();
+    cout << "Exercise 29: " << endl; exercise29();
 
 }
