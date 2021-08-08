@@ -311,6 +311,39 @@ void exercise35() {
     cout << "cval = " << cval << endl;
 }
 
+void exercise36() {
+    int i = 2;
+    double d = 2.5;
+    i *= static_cast<int>(d);
+    cout << i << endl; // 4
+}
+
+void exercise37() {
+    int i;
+    double d;
+    const string* ps;
+    char* pc;
+    void* pv;
+
+    // (a) pv = (void*)ps;
+    pv = static_cast<void*>(const_cast<string*>(ps));
+
+    // (b) i = int(*pc)
+    i = static_cast<int>(*pc);
+
+    // (c) pv = &d;
+    pv = static_cast<void*>(&d);
+
+    // (d) pc = (char*) pv;
+    pc = static_cast<char*>(pv);
+}
+
+/* Exercise 38
+* The expression first did integral division j / i, 
+* then converted the result to double and assigned it to slope. 
+* The result is the same as double slope = j / i;
+*/
+
 int main()
 {
     cout << "Exercise 1: " << exercise1() << endl;
@@ -330,4 +363,5 @@ int main()
     cout << "Exercise 29: " << endl; exercise29();
     cout << "Exercise 31: " << endl; exercise31();
     cout << "Exercise 35: " << endl; exercise35();
+    cout << "Exercise 36: " << endl; exercise36();
 }
