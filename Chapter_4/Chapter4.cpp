@@ -187,10 +187,33 @@ void exercise23() {
     cout << pl << endl;
 }
 
-/* Exercise24
+/* Exercise 24
 * grade > 90 ? "high pass" : grade < 60 ? "fail" : "pass";
 * (grade > 90 ? "high pass" : grade < 60) ? "fail" : "pass";
 */
+
+/* Exercise 25
+* ~'q' << 6 is the same as (~'q') << 6.
+* 'q' = 01110001
+* ~'q'  = 11111111 11111111 11111111 10001110
+* ~'q' << 6  = 11111111 11111111 11100011 10000000
+* The result is -7296.
+*/
+
+/* Exercise 26
+* The standard guarantees the minimum size of int is 16 bits, 
+* and the minimum size of long is 32 bits. Since the teacher has 30 students in a class, which needs at least 30 bits, 
+* int would be not enough to hold all the results.
+*/
+
+void exercise27() {
+    unsigned long ul1 = 3, ul2 = 7;
+    cout << (ul1 & ul2) << endl; // (a) 3 
+    cout << (ul1 | ul2) << endl; // (b) 7 
+    cout << (ul1 && ul2) << endl; // (c) 1 
+    cout << (ul1 || ul2) << endl; // (d) 1
+
+}
 
 int main()
 {
@@ -206,5 +229,6 @@ int main()
     // cout << "Exercise 21: " << endl; exercise21();
     // cout << "Exercise 22: " << endl; exercise22();
     cout << "Exercise 23: " << endl; exercise23();
+    cout << "Exercise 27: " << endl; exercise27();
 
 }
