@@ -241,6 +241,53 @@ void exercise29() {
 * (d) sizeof(f())
 */
 
+void exercise31() {
+    vector<int> ivec(10); 
+    vector<int>::size_type cnt = ivec.size();
+    for (vector<int>::size_type ix = 0; ix != ivec.size(); ++ix, --cnt) {
+        ivec[ix] = cnt;
+        // ivec = 10-1
+    }
+    for (const auto& e : ivec) {
+        cout << e << " ";
+    }
+    cout << endl;
+    
+    cnt = ivec.size();
+    for (vector<int>::size_type ix = 0; ix != ivec.size(); ix++, cnt--) {
+        ivec[ix] = cnt;
+        // ivec = 10-1
+    }
+    for (const auto& e : ivec) {
+        cout << e << " ";
+    }
+    cout << endl;
+}
+
+void exercise32() {
+    constexpr int size = 5;
+    int ia[size] = { 1,2,3,4,5 };
+    for (int* ptr = ia, ix = 0;
+        ix != size && ptr != ia + size;
+        ++ix, ++ptr) {
+        //...
+    }
+    // First, the loop created a pointer `ptr` point to the first element of the
+    // array `ia` and an index `ix`.
+    //
+    // Then the loop will check if the index is at one past the last of the array
+    // and if the pointer point to the element at one past the last of the array,
+    // if these are not true, the loop continues.
+    //
+    // Every time, the index will increase 1 and the pointe will move to point
+    // the next element.
+}
+
+/* Exercise 33 
+* sameValue ? ++x, ++y : --x, --y
+* (sameValue ? (++x, ++y) : --x), --y
+* Then it will be easy to notice that whatever sameValue evaluated, --y will always be evaluated.
+*/
 int main()
 {
     cout << "Exercise 1: " << exercise1() << endl;
@@ -258,5 +305,5 @@ int main()
     cout << "Exercise 27: " << endl; exercise27();
     cout << "Exercise 28: " << endl; exercise28();
     cout << "Exercise 29: " << endl; exercise29();
-
+    cout << "Exercise 31: " << endl; exercise31();
 }
