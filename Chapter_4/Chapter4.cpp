@@ -288,6 +288,29 @@ void exercise32() {
 * (sameValue ? (++x, ++y) : --x), --y
 * Then it will be easy to notice that whatever sameValue evaluated, --y will always be evaluated.
 */
+
+/* Exercise 34
+* (a) fval is converted to bool
+* (b) ival is converted to float, then added to fval, finally the result is converted to double
+* (c) cval is promoted to int, then multiplied by ival, then the result is converted to double, then added to dval
+*/
+
+void exercise35() {
+    char cval;
+    int ival = 1;
+    unsigned int ui = 1;
+    float fval;
+    double dval;
+    cval = 'a' + 3; // 'a' to int, and + 3; cval = d 
+    cout << "cval = " << cval << endl;
+    fval = ui - ival * 1.0;  
+    cout << "fval = " << fval << endl;
+    dval = ui * fval;
+    cout << "dval = " << dval << endl;
+    cval = ival + fval + dval;
+    cout << "cval = " << cval << endl;
+}
+
 int main()
 {
     cout << "Exercise 1: " << exercise1() << endl;
@@ -306,4 +329,5 @@ int main()
     cout << "Exercise 28: " << endl; exercise28();
     cout << "Exercise 29: " << endl; exercise29();
     cout << "Exercise 31: " << endl; exercise31();
+    cout << "Exercise 35: " << endl; exercise35();
 }
