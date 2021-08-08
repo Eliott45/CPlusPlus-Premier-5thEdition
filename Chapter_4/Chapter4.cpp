@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <limits>
+#include <vector>
 
 using namespace std;
 
@@ -141,6 +142,56 @@ void exercise15() {
 * (f) iter++->empty();  is legal. The expression means move iter to point to the next element and check if the original string is empty.
 */
 
+void exercise21() {
+    vector<int> v;
+    int i;
+    while (cin >> i) {
+        v.push_back(i);
+    }
+    for (auto& elem : v) {
+        elem = elem % 2 ? elem + elem : elem;
+    }
+    for (const auto& elem : v) {
+        cout << elem << ' ';
+    }
+    cout << endl;
+}
+
+void exercise22() {
+    int grade;
+    cin >> grade;
+    cout << (grade > 90 ? "High pass" : grade > 75 ? "Pass" : grade >= 60 ? "Low pass" : "Don't pass") << endl;
+
+    if (grade > 90) {
+        cout << "High pass" << endl;
+    }
+    else if (grade > 75) {
+        cout << "Pass" << endl;
+    }
+    else if (grade >= 60) {
+        cout << "Low pass" << endl;
+    }
+    else {
+        cout << "Fail" << endl;
+    }
+        
+}
+
+/// <summary>
+/// The precedence of the conditional operator is lower than arithmetic operator.
+/// </summary>
+void exercise23() {
+    string s = "word";
+    // string p1 = s + s[s.size() - 1] == 's' ? "" : "s";
+    string pl = s + (s[s.size() - 1] == 's' ? "" : "s");
+    cout << pl << endl;
+}
+
+/* Exercise24
+* grade > 90 ? "high pass" : grade < 60 ? "fail" : "pass";
+* (grade > 90 ? "high pass" : grade < 60) ? "fail" : "pass";
+*/
+
 int main()
 {
     cout << "Exercise 1: " << exercise1() << endl;
@@ -152,5 +203,8 @@ int main()
     // cout << "Exercise 10: " << endl; exercise10();
     // cout << "Exercise 11: " << endl; exercise11();
     cout << "Exercise 13: " << endl; exercise13();
+    // cout << "Exercise 21: " << endl; exercise21();
+    // cout << "Exercise 22: " << endl; exercise22();
+    cout << "Exercise 23: " << endl; exercise23();
 
 }
