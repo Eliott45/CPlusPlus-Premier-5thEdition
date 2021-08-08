@@ -113,6 +113,24 @@ void exercise15() {
 * (b) if (i = 1024) => if (i == 1024) ?
 */
 
+/* Exercise 17
+* The prefix increment operator increases the operand and return the operand itself as an lvalue.
+* The postfix increment operator increases the operand and return a copy of the operand's original value as an rvalue.
+*/
+
+/* Exercise 18
+* The loop will print all elements except the first one in the vector, 
+* and also try to dereference to one past the last element, which is an error. 
+* Also, if there is no negative value in the vector, the loop will continue to dereference whatever in memeory 
+* until a negative value is found, which is a disaster.
+*/
+
+/* Exercise 19
+* a) prt != 0 && *prt++ better ptr != 0 && (*ptr)++
+* b) ival++ && ival 
+* c) vec[ival++] <= vec[ival] better ++ival, vec[ival] <= vec[ival + 1]
+*/
+
 int main()
 {
     cout << "Exercise 1: " << exercise1() << endl;
