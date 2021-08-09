@@ -23,6 +23,12 @@ int exercise3() {
 	return sum;
 }
 
+/* Exercise 4 
+* (a) string::iterator iter = s.begin();
+* while (iter != s.end()) {...}
+* 
+*/
+
 int main()
 {
 	cout << "Exercise 2: " << exercise2() << endl;
