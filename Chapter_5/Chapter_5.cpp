@@ -460,6 +460,37 @@ void exercise21() {
 * while ((sz = get_size()) <= 0) ; // Null statement
 */
 
+void exercise23() {
+	int a, b;
+	cin >> a >> b;
+	cout << a / b << endl;
+}
+
+void exercise24() {
+	int a, b;
+	cin >> a >> b;
+	if (b == 0) throw runtime_error("Divide by 0.");
+	cout << a / b << endl;
+}
+
+void exercise25() {
+	int a, b;
+	bool tryAgain;
+	do {
+		tryAgain = false;
+		try {
+			cin >> a >> b;
+			if (b == 0) throw runtime_error("Divide by 0.");
+			cout << a / b << endl;
+		}
+		catch (runtime_error err) {
+			cout << err.what() << "\nTry again? (y/n)" << endl;
+			char c;
+			if (cin >> c && (c == 'y' || c == 'Y')) tryAgain = true;
+		}
+	} while (tryAgain);
+}
+
 int main()
 {
 	cout << "Exercise 2: " << exercise2() << endl;
@@ -475,5 +506,8 @@ int main()
 	// cout << "Exercise 19: " << endl;  exercise19();
 	// cout << "Exercise 20: " << endl;  exercise20();
 	// cout << "Exercise 21: " << endl;  exercise21();
+	// cout << "Exercise 23: " << endl;  exercise23();
+	// cout << "Exercise 24: " << endl;  exercise24();
+	cout << "Exercise 25: " << endl;  exercise25();
 
 }
