@@ -304,6 +304,36 @@ void exercise12() {
 * 
 */
 
+void exercise14() {
+	string word, duplicatedWord, maxDuplicatedWord;
+	unsigned cnt = 0, maxCnt = 0;
+	while (cin >> word && word != "!stop") {
+		if (word == duplicatedWord) {
+			cnt++;
+		}
+		else {
+			if (cnt > maxCnt) {
+				maxDuplicatedWord = duplicatedWord;
+				maxCnt = cnt;
+			}
+			duplicatedWord = word;
+			cnt = 1;
+		}
+	}
+
+	if (cnt > maxCnt) {
+		maxDuplicatedWord = duplicatedWord;
+		maxCnt = cnt;
+	}
+
+	if (maxCnt > 1) {
+		cout << maxDuplicatedWord << " occurs " << maxCnt << " times." << endl;
+	}
+	else {
+		cout << "No word was repeated." << endl;
+	}
+}
+
 int main()
 {
 	cout << "Exercise 2: " << exercise2() << endl;
@@ -314,5 +344,6 @@ int main()
 	// cout << "Exercise 10: " << endl;  exercise10();
 	// cout << "Exercise 11: " << endl;  exercise11();
 	// cout << "Exercise 12: " << endl;  exercise12();
+	cout << "Exercise 14: " << endl;  exercise14();
 
 }
