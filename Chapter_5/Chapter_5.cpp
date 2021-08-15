@@ -385,37 +385,6 @@ void exercise17() {
 	}
 	
 }
- 
-void exercise18() {
-	// (a)
-	do {
-		int v1, v2;
-		cout << "Please enter two numbers to sum:";
-		if (cin >> v1 >> v2) {
-			cout << "Sum is: " << v1 + v2 << endl;
-		}
-	} while (cin);
-	// (b)
-	// int ival;
-	// do {} while (ival = get_response());
-
-	// (c)
-	// int ival;
-	// do {
-	//	ival = get_response();
-	// } while (ival);
-}
-
-void exercise19() {
-	string s1, s2;
-	cin >> s1 >> s2;
-	do {
-		cout << (s1.length() == s2.length() ? "Equal"
-			: s1 < s2 ? "First small" : "Second small")
-			<< endl;
-	} while (cin >> s1 >> s2);
-
-}
 
 int main()
 {
@@ -429,6 +398,5 @@ int main()
 	// cout << "Exercise 12: " << endl;  exercise12();
 	// cout << "Exercise 14: " << endl;  exercise14();
 	// cout << "Exercise 17: " << endl;  exercise17();
-	// cout << "Exercise 19: " << endl;  exercise19();
 
 }
