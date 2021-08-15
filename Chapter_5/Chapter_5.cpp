@@ -417,6 +417,26 @@ void exercise19() {
 
 }
 
+void exercise20() {
+	string last, curr;
+	bool hasRepeat = false;
+	while (cin >> curr) {
+		if (curr == last) {
+			cout << "Find repeated word: " << curr << endl;
+			hasRepeat = true;
+			break;
+		}
+		else {
+			last = curr;
+		}
+	}
+
+	if (!hasRepeat) {
+		cout << "No word was repeated." << endl;
+	}
+		
+}
+
 int main()
 {
 	cout << "Exercise 2: " << exercise2() << endl;
@@ -430,5 +450,6 @@ int main()
 	// cout << "Exercise 14: " << endl;  exercise14();
 	// cout << "Exercise 17: " << endl;  exercise17();
 	// cout << "Exercise 19: " << endl;  exercise19();
+	cout << "Exercise 20: " << endl;  exercise20();
 
 }
