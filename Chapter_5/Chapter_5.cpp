@@ -455,6 +455,11 @@ void exercise21() {
 	if (!hasRepeat) cout << "No word was repeated." << endl;
 }
 
+/* Exercise 22
+* int sz;
+* while ((sz = get_size()) <= 0) ; // Null statement
+*/
+
 int main()
 {
 	cout << "Exercise 2: " << exercise2() << endl;
