@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <vector>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -334,6 +335,57 @@ void exercise14() {
 	}
 }
 
+/*
+void exercise15() {
+	// (a)
+	int sz = 5;
+	int ix = 0;
+	for (ix = 0; ix != sz; ++ix) {  };
+	if (ix != sz) { };
+
+	// (b)
+	int ix;
+	for (; ix != sz; ++ix) {};
+	
+	// (c) 
+	for (int ix = 0; ix != sz; ++ix (, ++sz) ) {}; // infinity loop
+}
+*/
+
+/* Exercise 16
+	I would choose `for`-loop, because it can do what a `while`-loop can, butnot vise versa.
+*/
+
+void exercise17() {
+	vector<int> v1, v2;
+	
+	cout << "v1: " << endl;
+	int i;
+	while (cin >> i && i != -1) {
+		v1.push_back(i);
+	}
+
+	cout << "v2: " << endl;
+	int j;
+	while (cin >> j && j != -1) {
+		v2.push_back(j);
+	}
+
+	auto it1 = v1.cbegin(), it2 = v2.cbegin();
+	for (; it1 != v1.cend() && it2 != v2.cend(); ++it1, ++it2) {
+		if (*it1 != *it2) break;
+
+	}
+
+	if (it1 == v1.cend() || it2 == v2.cend()) {
+		cout << "true" << endl;
+	}
+	else {
+		cout << "false" << endl;
+	}
+	
+}
+
 int main()
 {
 	cout << "Exercise 2: " << exercise2() << endl;
@@ -344,6 +396,7 @@ int main()
 	// cout << "Exercise 10: " << endl;  exercise10();
 	// cout << "Exercise 11: " << endl;  exercise11();
 	// cout << "Exercise 12: " << endl;  exercise12();
-	cout << "Exercise 14: " << endl;  exercise14();
+	// cout << "Exercise 14: " << endl;  exercise14();
+	// cout << "Exercise 17: " << endl;  exercise17();
 
 }
