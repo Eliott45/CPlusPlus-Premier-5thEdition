@@ -437,6 +437,24 @@ void exercise20() {
 		
 }
 
+void exercise21() {
+	string last, curr;
+	bool hasRepeat = false;
+	while (cin >> curr) {
+		if (curr[0] < 'A' || curr[0] > 'Z') {
+			last = curr;
+			continue;
+		}
+		if (curr == last) {
+			cout << "Find repeated word: " << curr << endl;
+			hasRepeat = true;
+			break;
+		}
+		last = curr;
+	}
+	if (!hasRepeat) cout << "No word was repeated." << endl;
+}
+
 int main()
 {
 	cout << "Exercise 2: " << exercise2() << endl;
@@ -450,6 +468,7 @@ int main()
 	// cout << "Exercise 14: " << endl;  exercise14();
 	// cout << "Exercise 17: " << endl;  exercise17();
 	// cout << "Exercise 19: " << endl;  exercise19();
-	cout << "Exercise 20: " << endl;  exercise20();
+	// cout << "Exercise 20: " << endl;  exercise20();
+	// cout << "Exercise 21: " << endl;  exercise21();
 
 }
