@@ -26,6 +26,7 @@ using namespace std;
 
 // Exercise 3-4
 
+/*
 int fact() {
     int val;
     cin >> val;
@@ -35,6 +36,7 @@ int fact() {
     }
     return ret;
 }
+*/
 
 int exercise5(int i) {
     return i >= 0 ? i : -i;
@@ -63,7 +65,6 @@ int main()
     cout << exercise7() << endl;
 
     */
-
 }
 
 
