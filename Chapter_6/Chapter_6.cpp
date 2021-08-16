@@ -40,11 +40,30 @@ int exercise5(int i) {
     return i >= 0 ? i : -i;
 }
 
+/* Exercise 6
+* A local variable is a variable defined inside the function scope.
+* A parameter is also a local variable, but the definition is in the parameter list of the function.
+* A local static variable is a local variable that defined with static keyword. It has a lifetime much longer than usual local variable.
+*/
+
+int exercise7() {
+    static int cnt = 0;
+    return cnt++;
+}
+
 int main()
 {
     // cout << "Exercise 3-4: "; cout << fact() << endl;
     // cout << "Exercise 5: "; cout << exercise5(5) << endl;
+
+    /*
     
+    cout << exercise7() << endl;
+    cout << exercise7() << endl;
+    cout << exercise7() << endl;
+
+    */
+
 }
 
 
