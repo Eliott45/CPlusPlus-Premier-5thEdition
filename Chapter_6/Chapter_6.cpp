@@ -53,6 +53,12 @@ int exercise7() {
     return cnt++;
 }
 
+void exercise10(int* a, int* b) {
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+
 int main()
 {
     // cout << "Exercise 3-4: "; cout << fact() << endl;
@@ -65,6 +71,12 @@ int main()
     cout << exercise7() << endl;
 
     */
+
+    cout << "Exercise 10: " << endl;
+    int a, b;
+    cin >> a >> b;
+    exercise10(&a, &b);
+    cout << a << " " << b << endl;
 }
 
 
