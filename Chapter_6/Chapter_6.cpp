@@ -59,6 +59,33 @@ void exercise10(int* a, int* b) {
     *b = tmp;
 }
 
+void exercise11(int &i) {
+    i = 0;
+}
+
+void exercise12(int &a, int &b) {
+    int tmp = a;
+    a = b;
+    b = tmp;
+}
+
+/* Exercise 13
+* void f(T) will pass the argument by value, which means in the function f, a copy of T will be made.
+* void f(T&) will pass the argument by reference, which means in the function f, the same variable defined in the caller is used.
+*/
+
+/* Exercise 14
+* Reference parameters
+
+    - Functions must use reference parameters to operate on objects of a type that cannot be copied.
+
+    - Functions prefer to use reference parameters to operate on objects of large class types or large containers.
+
+    - Functions should use reference parameters to return additional information via the reference parameters.
+
+    - void printStr(std::ostream &os, const std::string &str, bool &stat) { if (os << str) stat = true; else stat = false; }
+*/
+
 int main()
 {
     // cout << "Exercise 3-4: "; cout << fact() << endl;
@@ -72,11 +99,35 @@ int main()
 
     */
 
+    /* Exercise 10
+    
     cout << "Exercise 10: " << endl;
     int a, b;
     cin >> a >> b;
     exercise10(&a, &b);
     cout << a << " " << b << endl;
+
+    */
+
+    // Exercise 11
+    /*
+    int c;
+    cin >> c;
+    exercise11(c);
+    cout << c << endl;
+    */
+
+    /*
+    * 
+    cout << "Exercise 12: " << endl;
+    int a, b;
+    cin >> a >> b;
+    exercise12(a, b);
+    cout << a << " " << b << endl;
+    //  The reference version looks like easier to use, but the user must know from other source that the function will change the value of the argument.
+    */
+
+    
 }
 
 
