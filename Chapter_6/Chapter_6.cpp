@@ -75,7 +75,7 @@ void exercise12(int &a, int &b) {
 */
 
 /* Exercise 14
-* Reference parameters
+Reference parameters
 
     - Functions must use reference parameters to operate on objects of a type that cannot be copied.
 
@@ -84,6 +84,62 @@ void exercise12(int &a, int &b) {
     - Functions should use reference parameters to return additional information via the reference parameters.
 
     - void printStr(std::ostream &os, const std::string &str, bool &stat) { if (os << str) stat = true; else stat = false; }
+
+Nonreference parameters
+
+    - Functions should use nonreference parameters when the value of the parameters may changed but should not affect the objects passed to the function.
+
+        int sum(int n) { int sum = 0; while (n > 0) sum += n--; return sum; }
+*/
+
+/* Exercise 15
+string::size_type find_char(const string &s, char c, string::size_type &occurs)
+
+- s and occurs are both referecnes to avoid copy.
+- s is const because it isn't changed inside function and a string literal can be used here. occurs is plain reference beacuse it is used to pass information (changed inside function).
+- c is nonreference because copy a char is very cheap. It's fine to make it a const reference but not plain reference, because we don't want to accidentally change c inside function, and we may want to pass a char literal to the function.
+- If occurs is made a reference to const, then we cannot get how many times the character c occurred in string s.
+*/
+
+/* Exercise 16
+* bool is_empty(string &s) { return s.empty(); } // The parameter of the function should be const string &s. So that we can pass string literals or const strings to the function.
+*/
+
+// Exercise 17
+
+bool CapitalLetter(const string& s) {
+    for (auto& c : s) {
+        if (c >= 'A' && c <= 'Z') return true;
+    } 
+    return false;
+}
+
+void toLowerStr(string& s) {  
+    for (auto& c : s) {
+        if (c >= 'A' && c <= 'Z') c -= 'A' - 'a';
+    }
+}
+
+// The parameters have different type, because in `hasCapital`, we don't need to change the string, but in `toLowerStr`, we need to change the string.
+
+/* Exercise 18
+* (a) bool compare(const matrix &, const matrix &);
+* (b) vector<int> change_val(int, vector<int>::iterator &); 
+*/
+
+/* Exercise 19
+* double calc(double);
+* int count(const string &, char);
+* int sum(vector<int>::iterator, vector<int>::iterator, int);
+* vector<int> vec(10);
+* (a) calc(23.4, 55.1); !Error two parameters 
+* (b) count("abcda", 'a');
+* (c) calc(66);
+* (d) sum(vec.begin(), vec.end(), 3.8);
+*/
+
+/* Exercise 20
+* If the reference parameters will not be changed inside function, then they should be reference to const.
 */
 
 int main()
@@ -117,8 +173,7 @@ int main()
     cout << c << endl;
     */
 
-    /*
-    * 
+    /* Exercise 12
     cout << "Exercise 12: " << endl;
     int a, b;
     cin >> a >> b;
@@ -127,7 +182,14 @@ int main()
     //  The reference version looks like easier to use, but the user must know from other source that the function will change the value of the argument.
     */
 
-    
+    /* Exercise 17
+    cout << "Exercise 17" << endl;
+    string s;
+    cin >> s;
+    cout << CapitalLetter(s) << endl;
+    toLowerStr(s);
+    cout << s << endl;
+    */
 }
 
 
