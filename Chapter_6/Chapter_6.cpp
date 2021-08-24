@@ -142,6 +142,53 @@ void toLowerStr(string& s) {
 * If the reference parameters will not be changed inside function, then they should be reference to const.
 */
 
+int Exercise21(int a, int* pb) {
+    return a > *pb ? a : *pb;
+}
+
+void Exercise22(int*& a, int*& b) {
+    int* tmp = a;
+    a = b;
+    b = tmp;
+}
+
+// Exercise 23
+void print(int i) {
+    cout << "void print(int i): ";
+    cout << i << endl;
+}
+
+void print(const int* bg, const int* ed) {
+    cout << "void print(const int *bg, const int *ed): ";
+    while (bg != ed) {
+        cout << *bg++ << " ";
+    }
+    
+}
+
+void print(const int arr[], size_t sz) {
+    cout << "void print(const int arr[], size_t sz): ";
+    for (size_t i = 0; i != sz; ++i) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+void print(const int(&arr)[2]) {
+    cout << "void print(const int (&arr)[2]): ";
+    for (auto& e : arr) {
+        cout << e << " ";
+    }
+    cout << endl;
+}
+       
+// Exercise 24
+void print(const int(&ia)[10]) {
+    for (size_t i = 0; i != 10; i++) {
+        cout << ia[i] << endl;
+    }
+}
+
 int main()
 {
     // cout << "Exercise 3-4: "; cout << fact() << endl;
@@ -190,6 +237,36 @@ int main()
     toLowerStr(s);
     cout << s << endl;
     */
+
+    /*
+    cout << "Exercise 21" << endl;
+    int a, b;
+    cin >> a >> b;
+    cout << Exercise21(a, &b);
+    */
+
+    // Exercise 22
+    cout << "Exercise 22: " << endl;
+    int i = 1, j = 2;
+    int* pi = &i, * pj = &j;
+    cout << "pi = " << pi << " *pi = " << *pi << endl;
+    cout << "pj = " << pj << " *pj = " << *pj << endl;
+    Exercise22(pi, pj);
+    cout << "pi = " << pi << " *pi = " << *pi << endl;
+    cout << "pj = " << pj << " *pj = " << *pj << endl;
+    cout << endl;
+
+    // Exercise 23
+    cout << "Exercise 23: " << endl;
+    int i2 = 0, j2[2] = { 0, 1 };
+    print(i2);
+    print(begin(j2), end(j2));
+    print(j2, end(j2) - begin(j2));
+    print(j2);
+    cout << endl;
+
+    
+
 }
 
 
