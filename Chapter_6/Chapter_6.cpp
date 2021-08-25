@@ -189,8 +189,33 @@ void print(const int(&ia)[10]) {
     }
 }
 
+/* Exercise 25
+int main(int argc, char* argv[]) {
+    cout << "All " << argc << " argument" << (argc > 1 ? "s are:" : " is:") << endl;
+    for (int i = 0; i < argc; ++i) {
+        cout << i << "\t" << argv[i] << endl;
+    }
+    if (argc < 3)  return -1;
+    string args(argv[1]);
+    args += argv[2];
+    cout << args << endl;
+
+    return 0;
+}
+
+*/
+
+/*
+int main(int argc, char* argv[]) {
+    cout << "All " << argc << " argument" << (argc > 1 ? "s are:" : " is:") << endl;
+    for (int i = 0; i < argc; ++i) cout << i << "\t" << argv[i] << endl;
+    return 0;
+}
+*/
+/* 
 int main()
 {
+ */
     // cout << "Exercise 3-4: "; cout << fact() << endl;
     // cout << "Exercise 5: "; cout << exercise5(5) << endl;
 
@@ -246,6 +271,7 @@ int main()
     */
 
     // Exercise 22
+/*
     cout << "Exercise 22: " << endl;
     int i = 1, j = 2;
     int* pi = &i, * pj = &j;
@@ -269,4 +295,4 @@ int main()
 
 }
 
-
+*/
