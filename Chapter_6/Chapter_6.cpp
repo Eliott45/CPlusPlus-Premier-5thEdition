@@ -205,17 +205,33 @@ int main(int argc, char* argv[]) {
 
 */
 
-/*
+/* Exercise 26
 int main(int argc, char* argv[]) {
     cout << "All " << argc << " argument" << (argc > 1 ? "s are:" : " is:") << endl;
     for (int i = 0; i < argc; ++i) cout << i << "\t" << argv[i] << endl;
     return 0;
 }
 */
-/* 
+
+int Exercise27(initializer_list<int> il) {
+    int sum = 0;
+    for (auto& e : il) {
+        sum += e;
+    }
+    return sum;
+}
+
+/* Exercise 28
+* The type of elem is const string &.
+*/
+
+/* Exercise 29
+* Use a reference as the loop control variable. So that we don't need to copy the value from the initializer_list.
+*/
+
 int main()
 {
- */
+ 
     // cout << "Exercise 3-4: "; cout << fact() << endl;
     // cout << "Exercise 5: "; cout << exercise5(5) << endl;
 
@@ -271,7 +287,6 @@ int main()
     */
 
     // Exercise 22
-/*
     cout << "Exercise 22: " << endl;
     int i = 1, j = 2;
     int* pi = &i, * pj = &j;
@@ -291,8 +306,10 @@ int main()
     print(j2);
     cout << endl;
 
-    
+    cout << "Exercise 27: " << endl;
+    cout << Exercise27({ 1,2,4,5 }) << endl;;
+
 
 }
 
-*/
+
