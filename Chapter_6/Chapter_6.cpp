@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -229,6 +230,46 @@ int Exercise27(initializer_list<int> il) {
 * Use a reference as the loop control variable. So that we don't need to copy the value from the initializer_list.
 */
 
+// Exercise 30
+bool str_subrange(const string& str1, const string& str2) {
+    if (str1.size() == str2.size())
+        return str1 == str2;
+    auto size = (str1.size() < str2.size()) ? str1.size() : str2.size();
+    for (decltype(size) i = 0; i != size; ++i) {
+        if (str1[i] != str2[i])
+            //return;  // Error: need a return value
+            return false;
+    }
+    // Error: need a return statement
+    return true;
+}
+
+/* Exercise 31
+* When the object is not a local object, then that's fine to return a reference to it.
+* When we don't want the reference returned from a function to be an lvalue, we should use a reference to const as the return type instead.
+*/
+
+// Exercise 32
+int& get(int* arry, int index) {
+    return arry[index];
+}
+// The function is legal. It return a reference to the element at `index` in array `arry`. The reference return is lvalue, thus can be used to assign to the array.
+
+void Exercise33(const vector<int>::iterator bg,
+    const vector<int>::iterator ed) {
+    if (bg == ed) return;
+    cout << *bg << " ";
+    Exercise33(bg + 1, ed);
+}
+
+/* Exercise 34
+* If we pass a negative number to the function, then it will recursively call itself infinitely.
+*/
+
+/* Exercise 35
+* Due to the priority, the function will be called infinitely. 
+*/
+
 int main()
 {
  
@@ -309,7 +350,16 @@ int main()
     cout << "Exercise 27: " << endl;
     cout << Exercise27({ 1,2,4,5 }) << endl;;
 
+    /*
+    string s1, s2;
+    cin >> s1 >> s2;
+    cout << str_subrange(s1, s2) << endl;
+    */
 
+    cout << "Exercise 33: " << endl;
+    vector<int> vi = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    Exercise33(vi.begin(), vi.end());
+    cout << endl;
 }
 
 
