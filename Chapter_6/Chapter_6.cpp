@@ -270,6 +270,41 @@ void Exercise33(const vector<int>::iterator bg,
 * Due to the priority, the function will be called infinitely. 
 */
 
+// Exercises 36-37
+
+string(&link1())[10];
+
+string str[10] = {"Sun", "Mars", "Test", "Card", "Car", "Cat", "Dog", "Nice", "Hot"};
+
+string(&link1())[10]{
+  return str;
+}
+
+using arr_str_type = string[10];
+arr_str_type &link2();
+
+arr_str_type& link2() {
+    return str;
+}
+
+auto link3()->string(&)[10];
+auto link3()->string(&)[10]{
+  return str;
+}
+
+decltype(str)& link4() {
+    return str;
+}
+
+// Exercise 38
+int odd[] = { 1, 3, 5, 7, 9 };
+int even[] = { 0, 2, 4, 6, 8 };
+auto arrPtr(int i) -> int(&)[5]{
+  return i % 2 ? odd : even;
+}
+
+
+
 int main()
 {
  
@@ -360,6 +395,22 @@ int main()
     vector<int> vi = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     Exercise33(vi.begin(), vi.end());
     cout << endl;
+
+    cout << "Exercises 36-37: " << endl;
+    cout << "Link 1: " << link1() << endl;
+    cout << "Link 2: " << link2() << endl;
+    cout << "Link 3: " << link3() << endl;
+    cout << "Link 4: " << link4() << endl;
+    cout << endl;
+
+    /* Exercise 38
+    int i3;
+    cin >> i3;
+    int(&arr)[5] = arrPtr(i3);
+    int* arr2 = arrPtr(i3);
+    cout << arr[0] << " " << arr2[0] << endl;
+    return 0;
+    */
 }
 
 
