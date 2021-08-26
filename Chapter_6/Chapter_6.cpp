@@ -332,6 +332,24 @@ string make_plural(size_t ctr, const string& word, const string& ending = "s") {
     return (ctr > 1) ? word + ending : word;
 }
 
+/* Exercise 43
+* (a) inline bool eq(const BigInt&, const BigInt&) {...}
+* (b) void putValues(int *arr, int size);
+* The declarations of both functions should be put in a header. 
+* The definition of function eq should be put in the same header with declaration. 
+* The definition of function putValues may be put in a source file.
+*/
+
+// Exercise 44
+inline bool isShorter(const string& s1, const string& s2) {
+    return s1.size() < s2.size();
+}
+
+/* Exercise 46
+* No, a constexpr function may only contains statements that generate no actions at run time, 
+* but the member method size() must be called at run time, thus the function can not be a constexpr function.
+*/
+
 int main()
 {
  
