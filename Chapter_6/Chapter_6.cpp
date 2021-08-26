@@ -315,6 +315,23 @@ auto arrPtr(int i) -> int(&)[5]{
 * double *reset(double *);  // Ok, define an overloaded function
 */
 
+/* Exercise 40
+* (a) int ff(int a, int b = 0, int c = 0);  // Ok
+* (b) char *init(int ht = 24, int wd, char bckgrnd); // Error
+*/
+
+/* Exercise 41
+* char *init(int ht, int wd = 80, char bckgrnd = ' ');
+* (a) init(); is illegal, must have at least one argument.
+* (b) init(24, 10); is legal.
+* (c) init(14, '*'); is legal, but unlikely to match the programer's intent. Because the character * will be promoted to int and match wd.
+*/
+
+// Exercise 42
+string make_plural(size_t ctr, const string& word, const string& ending = "s") {
+    return (ctr > 1) ? word + ending : word;
+}
+
 int main()
 {
  
@@ -421,6 +438,12 @@ int main()
     cout << arr[0] << " " << arr2[0] << endl;
     return 0;
     */
+
+    cout << "Exercise 42: " << endl;
+    cout << "success: " << make_plural(2, "success", "es") << endl;
+    cout << "success (single): " << make_plural(1, "success", "es") << endl;
+    cout << "failure: " << make_plural(2, "failure") << endl;
+    cout << endl;
 }
 
 
