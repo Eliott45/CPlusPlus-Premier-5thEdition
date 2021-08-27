@@ -350,6 +350,24 @@ inline bool isShorter(const string& s1, const string& s2) {
 * but the member method size() must be called at run time, thus the function can not be a constexpr function.
 */
 
+void Exercise47(const vector<int>::iterator bg, const vector<int>::iterator ed) {
+    #ifndef NDEBUG
+    cout << "In function: " << __func__ << ", " << "Vector size: " << ed - bg << endl;
+    #endif
+    if (bg == ed) return;
+    cout << *bg << endl;
+    Exercise47(bg + 1, ed);
+}
+
+/* Exercise 48
+* string s;
+* while(cin >> s && s != sought() {} 
+* assert(cin);
+* The loop are used to keep reading string from the input until sought found. 
+* It is a bad idea to use assert check whether cin is in an error state. 
+* Because when the program compiled with NDEBUG preprocessor variable, the statement would not be excuted.
+*/
+
 int main()
 {
  
@@ -461,6 +479,11 @@ int main()
     cout << "success: " << make_plural(2, "success", "es") << endl;
     cout << "success (single): " << make_plural(1, "success", "es") << endl;
     cout << "failure: " << make_plural(2, "failure") << endl;
+    cout << endl;
+
+    cout << "Exercise 47: " << endl;
+    vector<int> vi2 = { 0,1,2,3,4 };
+    Exercise47(vi2.begin(), vi2.end());
     cout << endl;
 }
 
