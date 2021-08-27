@@ -411,8 +411,17 @@ int calc(const char*, const char*);
 int calc(char*, char*);
 int calc(char* const, char* const);
 // Error, redeclare the same function, top-level `const` is ignored
-
 */
+
+// Exercise 54 
+int foo1(int, int);
+int bar1(int, int);
+
+// Exercises 55-56
+int add(int, int);
+int subtract(int, int);
+int multiply(int, int);
+int divide(int, int);
 
 int main()
 {
@@ -531,6 +540,70 @@ int main()
     vector<int> vi2 = { 0,1,2,3,4 };
     Exercise47(vi2.begin(), vi2.end());
     cout << endl;
+
+    cout << "Exercise 54: " << endl;
+    vector<int (*)(int, int)> vf;
+    vf.push_back(foo1);
+    vf.push_back(bar1);
+    vf[0](1, 2);
+    vf[1](3, 4);
+    for (const auto& e : vf) {
+        e(9, 9);
+    }
+    cout << endl;
+
+    cout << "Exercise 55-56: " << endl;
+    vector<int (*)(int, int)> vf1;
+
+    vf1.push_back(add);
+    vf1.push_back(subtract);
+    vf1.push_back(multiply);
+    vf1.push_back(divide);
+
+    int a, b;
+    cin >> a >> b;
+    for (const auto& e : vf) {
+        cout << e(a, b) << endl;
+    }
+
+    cout << endl;
+}
+
+int foo1(int a, int b) {
+    cout << "Called foo(" << a << ", " << b << ")" << endl;
+    return 0;
+}
+
+int bar1(int a, int b) {
+    cout << "Called bar(" << a << ", " << b << ")" << endl;
+    return 0;
 }
 
 
+int add(int a, int b) {
+    cout << "Called add(" << a << ", " << b << ")" << endl;
+    return a + b;
+}
+
+int subtract(int a, int b) {
+    cout << "Called subtract(" << a << ", " << b << ")" << endl;
+    return a - b;
+}
+
+int multiply(int a, int b) {
+    cout << "Called multiply(" << a << ", " << b << ")" << endl;
+    return a * b;
+}
+
+int divide(int a, int b) {
+    cout << "Called divide(" << a << ", " << b << ")" << endl;
+    try {
+        if (b == 0)
+            throw runtime_error("Divide by 0.");
+        return a / b;
+    }
+    catch (std::runtime_error err) {
+        cerr << err.what() << endl;
+        return 0;
+    }
+}
