@@ -368,6 +368,27 @@ void Exercise47(const vector<int>::iterator bg, const vector<int>::iterator ed) 
 * Because when the program compiled with NDEBUG preprocessor variable, the statement would not be excuted.
 */
 
+/* Exercise 49
+* A candidate function is a function with the same name as the called 
+* function and for which a declaration is visible at the point of the call.
+* 
+* A viable function is a candidate function with the same number of parameters 
+* as there are arguments in the call, and the type of each argument must match or be convertible 
+* to the type of its corresponding parameter.
+*/
+
+/* Exercise 50-51
+void f();                         |
+void f(int);                      |
+void f(int, int);                 |
+void f(double, double = 3.14);    |
+----------------------------------|
+(a) f(2.56, 42)  // Error
+(b) f(42) // void f(int);    
+(c) f(42, 0) // void f(int, int);  
+(d) f(2.56, 3.14) // void f(double, double = 3.14);   
+*/
+
 int main()
 {
  
