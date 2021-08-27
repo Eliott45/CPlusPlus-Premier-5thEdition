@@ -389,6 +389,31 @@ void f(double, double = 3.14);    |
 (d) f(2.56, 3.14) // void f(double, double = 3.14);   
 */
 
+/* Exercise 52
+* void manip(int, int);
+* double dobj;
+* (a) manip('a', 'z'); rank 3
+* (b) manip(55.4, dobj); rank 4
+*/
+
+/* Exercise 53
+(a)
+int calc(int&, int&);
+int calc(const int&, const int&);
+// OK, overloaded function takes reference to `const`
+
+(b)
+int calc(char*, char*);
+int calc(const char*, const char*);
+// OK, overloaded function takes pointer to `const`
+
+(c)
+int calc(char*, char*);
+int calc(char* const, char* const);
+// Error, redeclare the same function, top-level `const` is ignored
+
+*/
+
 int main()
 {
  
