@@ -2,8 +2,16 @@
 
 using namespace std;
 
+struct Sales_data;
+istream& read(istream& is, Sales_data& item);
 
 struct Sales_data {
+    // Sales_data() = default;
+    Sales_data() : bookNo(""), units_sold(0), revenue(0.0) {}
+    Sales_data(const string& no) : bookNo(no) {}
+    Sales_data(const string& no, unsigned us, double price): bookNo(no), units_sold(us), revenue(price* us) {}
+    Sales_data(istream& is);
+
     string isbn() const { return bookNo; }
     Sales_data& combine(const Sales_data&);
 
@@ -17,28 +25,6 @@ Sales_data& Sales_data::combine(const Sales_data& rhs) {
     units_sold += rhs.units_sold;
     revenue += rhs.revenue;
     return *this;
-}
-
-// Exercise 1, 3, 7
-string exercise1() {
-    Sales_data total;
-    if (read(cin, total)) {
-        Sales_data trans;
-        while (read(cin, trans)) {
-            if (total.isbn() == trans.isbn()) {
-                total.combine(trans);
-            }
-            else {
-                print(cout, total) <<endl;
-                total = trans;  
-            }
-        }
-        print(cout, total) << endl;
-    }
-    else {
-        cerr << "No data!" << endl;
-        return "Error";
-    }
 }
 
 // Exercise 6
@@ -60,8 +46,41 @@ ostream& print(ostream& os, const Sales_data& item) {
     return os;
 }
 
+// Exercise 1, 3, 7, 13
+string exercise1() {
+    Sales_data total(cin);
+    if (cin) {
+        Sales_data trans(cin);
+        while (cin) {
+            if (total.isbn() == trans.isbn()) {
+                total.combine(trans);
+            }
+            else {
+                print(cout, total) << endl;
+                total = trans; 
+            }
+            read(cin, trans);  
+        }
+        print(cout, total) << endl;
+    }
+    else {
+        cerr << "No data!" << endl;
+        return "Error";
+    }
+}
+
+// Exercise 11
+Sales_data::Sales_data(istream& is) {
+    read(is, *this);
+}
+
 // Exercise 4-5, 9
 struct Person {
+    Person() = default;
+    Person(const string & n) : name(n) {}
+    Person(const string & n, const std::string & a) : name(n), address(a) {}
+    Person(istream&);
+
     string getName() const { return name; }
     string getAddress() const { return address; }
 
@@ -74,9 +93,13 @@ istream& read(istream& is, Person& rhs) {
     return is;
 }
 
-ostream& print(ostream& os, const Person& rhs) {
-    os << rhs.getName() << " " << rhs.getAddress();
-    return os;
+ostream &print(ostream &os, const Person &rhs) {
+  os << rhs.getName() << " " << rhs.getAddress();
+  return os;
+}
+
+Person::Person(istream& is) {
+    read(is, *this);
 }
 
 /* Exercise 8
@@ -89,9 +112,37 @@ ostream& print(ostream& os, const Person& rhs) {
 * The condition test if both data1 and data2 are read correctly.
 */
 
+
+
 int main()
 {
     // exercise1();
+
+    // Exercise 11,12
+    /*
+    Sales_data d1;
+    Sales_data d2("0-201-78345-X");
+    Sales_data d3("0-201-78345-X", 5, 2.5);
+    Sales_data d4(cin);
+
+    print(cout, d1) << endl;
+    print(cout, d2) << endl;
+    print(cout, d3) << endl;
+    print(cout, d4) << endl;
+    */
+    
+    // Exercise 15
+    /* 
+    Person p1;
+    Person p2("Zhang San");
+    Person p3("Zhang San", "Earth");
+    Person p4(cin);
+
+    print(cout, p1) << endl;
+    print(cout, p2) << endl;
+    print(cout, p3) << endl;
+    print(cout, p4) << endl;
+    */
 }
 
 

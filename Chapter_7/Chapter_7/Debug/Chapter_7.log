@@ -1,3 +1,3 @@
 ﻿  Chapter_7.cpp
-N:\Eliott_Alderson\study\С++\Books\CPlus_Primer_Exercises\Chapter_7\Chapter_7\Chapter_7.cpp(42): warning C4715: 'exercise1': not all control paths return a value
+N:\Eliott_Alderson\study\С++\Books\CPlus_Primer_Exercises\Chapter_7\Chapter_7\Chapter_7.cpp(70): warning C4715: 'exercise1': not all control paths return a value
   Chapter_7.vcxproj -> N:\Eliott_Alderson\study\С++\Books\CPlus_Primer_Exercises\Chapter_7\Chapter_7\Debug\Chapter_7.exe
