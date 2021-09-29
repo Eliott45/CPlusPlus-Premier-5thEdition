@@ -76,14 +76,17 @@ Sales_data::Sales_data(istream& is) {
 
 // Exercise 4-5, 9
 struct Person {
+    // Public
     Person() = default;
     Person(const string & n) : name(n) {}
     Person(const string & n, const std::string & a) : name(n), address(a) {}
     Person(istream&);
 
+    // Public
     string getName() const { return name; }
     string getAddress() const { return address; }
 
+    // Private
     string name;
     string address;
 };
@@ -112,6 +115,30 @@ Person::Person(istream& is) {
 * The condition test if both data1 and data2 are read correctly.
 */
 
+/* Exercise 16
+There is no constraint on where and how often an access specifier may appear inside a class definition. 
+A class may contain zero or more access specifiers, each kind of access specifiers can appears multiple times. T
+here is no constraint on the sequence of access specifiers too.
+
+The constructors and member functions that are part of the interface should be defined after a public specifier.
+
+The data members and member functions that are part of the implementation should be defined after a private specifier.
+*/
+
+
+/* Exercise 17
+The only difference between struct and class is the default access level. 
+The members defined before the first access specifier are public in struct, while those are private in class.
+*/
+
+/* Exercise 18
+Encapsulation enforces the separation between interface and implementation in a class via access specifiers. Encapsulation provides some advantages:
+
+* A class that is encapsulated hides its implementation to the user of the class, 
+thus the user need not know how the class works, they can regard the class as a type (like a built-in type) instead.
+* User code cannot inadvertently corrupt the state of an encapsulated object.
+* The implementation of an encapsulated class can change over time without requiring changes in user code.
+*/
 
 
 int main()
