@@ -19,28 +19,21 @@ Sales_data& Sales_data::combine(const Sales_data& rhs) {
     return *this;
 }
 
-// Exercise 1, 3
+// Exercise 1, 3, 7
 string exercise1() {
     Sales_data total;
-    double price;
-    if (cin >> total.bookNo >> total.units_sold >> price) {
-        total.revenue = total.units_sold * price;
+    if (read(cin, total)) {
         Sales_data trans;
-        while (cin >> trans.bookNo >> trans.units_sold >> price) {
-            trans.revenue = trans.units_sold * price;
+        while (read(cin, trans)) {
             if (total.isbn() == trans.isbn()) {
                 total.combine(trans);
             }
             else {
-                cout << total.bookNo << " "
-                    << total.units_sold << " "
-                    << total.revenue << endl;
+                print(cout, total) <<endl;
                 total = trans;  
             }
         }
-        cout << total.bookNo << " "
-            << total.units_sold << " "
-            << total.revenue << endl;
+        print(cout, total) << endl;
     }
     else {
         cerr << "No data!" << endl;
@@ -48,7 +41,26 @@ string exercise1() {
     }
 }
 
-// Exercise 4-5
+// Exercise 6
+Sales_data add(const Sales_data& lhs, const Sales_data& rhs) {
+    Sales_data sum = lhs;  // Use default copy constructor
+    sum.combine(rhs);
+    return sum;
+}
+
+istream& read(istream& is, Sales_data& item) {
+    double price;
+    is >> item.bookNo >> item.units_sold >> price;
+    item.revenue = item.units_sold * price;
+    return is;
+}
+
+ostream& print(ostream& os, const Sales_data& item) {
+    os << item.isbn() << " " << item.units_sold << " " << item.revenue;
+    return os;
+}
+
+// Exercise 4-5, 9
 struct Person {
     string getName() const { return name; }
     string getAddress() const { return address; }
@@ -57,6 +69,25 @@ struct Person {
     string address;
 };
 
+istream& read(istream& is, Person& rhs) {
+    is >> rhs.name >> rhs.address;
+    return is;
+}
+
+ostream& print(ostream& os, const Person& rhs) {
+    os << rhs.getName() << " " << rhs.getAddress();
+    return os;
+}
+
+/* Exercise 8
+* The read function will change its Sales_data parameter and pass the information back via plain reference.
+* The print function won't change its Sales_data parameter, and by using a reference to const, we can print const Sales_data object as well.
+*/
+
+/* Exercise 10
+* if(read(read(cin, data1), data2))
+* The condition test if both data1 and data2 are read correctly.
+*/
 
 int main()
 {
