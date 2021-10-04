@@ -2,11 +2,15 @@
 
 using namespace std;
 
-struct Sales_data;
+class Sales_data;
 istream& read(istream& is, Sales_data& item);
 
-struct Sales_data {
-    // Sales_data() = default;
+class Sales_data {
+    friend Sales_data add(const Sales_data&, const Sales_data&);
+    friend istream& read(istream&, Sales_data&);
+    friend ostream& print(ostream&, const Sales_data&);
+
+public:
     Sales_data() : bookNo(""), units_sold(0), revenue(0.0) {}
     Sales_data(const string& no) : bookNo(no) {}
     Sales_data(const string& no, unsigned us, double price): bookNo(no), units_sold(us), revenue(price* us) {}
@@ -15,6 +19,7 @@ struct Sales_data {
     string isbn() const { return bookNo; }
     Sales_data& combine(const Sales_data&);
 
+private:
     string bookNo;
     unsigned units_sold = 0;
     double revenue = 0.0;
@@ -75,18 +80,20 @@ Sales_data::Sales_data(istream& is) {
 }
 
 // Exercise 4-5, 9
-struct Person {
-    // Public
+class Person {
+    friend istream& read(istream&, Person&);
+    friend ostream& print(ostream&, const Person&);
+
+public:
     Person() = default;
     Person(const string & n) : name(n) {}
-    Person(const string & n, const std::string & a) : name(n), address(a) {}
+    Person(const string & n, const string & a) : name(n), address(a) {}
     Person(istream&);
 
-    // Public
     string getName() const { return name; }
     string getAddress() const { return address; }
 
-    // Private
+private:
     string name;
     string address;
 };
@@ -140,12 +147,17 @@ thus the user need not know how the class works, they can regard the class as a 
 * The implementation of an encapsulated class can change over time without requiring changes in user code.
 */
 
+/* Exercise 20
+A friend of a class can access nonpublic members of that class.
++ For functions that are part of the interface while not a member of the class, they can access the nonpublic members of that class.
++ If the implementation of the class changes over time, its friend may also requiring changes.
+*/
 
 int main()
 {
     // exercise1();
 
-    // Exercise 11,12
+    // Exercise 11,12, 21
     /*
     Sales_data d1;
     Sales_data d2("0-201-78345-X");
@@ -158,8 +170,8 @@ int main()
     print(cout, d4) << endl;
     */
     
-    // Exercise 15
-    /* 
+    // Exercise 15, 22
+    
     Person p1;
     Person p2("Zhang San");
     Person p3("Zhang San", "Earth");
@@ -169,7 +181,7 @@ int main()
     print(cout, p2) << endl;
     print(cout, p3) << endl;
     print(cout, p4) << endl;
-    */
+    
 }
 
 
