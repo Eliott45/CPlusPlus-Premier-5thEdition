@@ -20,6 +20,7 @@ public:
     Sales_data& combine(const Sales_data&);
 
 private:
+    double avg_price() const;
     string bookNo;
     unsigned units_sold = 0;
     double revenue = 0.0;
@@ -47,11 +48,16 @@ istream& read(istream& is, Sales_data& item) {
 }
 
 ostream& print(ostream& os, const Sales_data& item) {
-    os << item.isbn() << " " << item.units_sold << " " << item.revenue;
+    os << item.isbn() << " " << item.units_sold << " " << item.revenue << " " << item.avg_price();
     return os;
 }
 
-// Exercise 1, 3, 7, 13
+inline
+double Sales_data::avg_price() const {
+    return units_sold ? revenue / units_sold : 0;
+}
+
+// Exercise 1, 3, 7, 13, 26
 string exercise1() {
     Sales_data total(cin);
     if (cin) {
@@ -153,12 +159,55 @@ A friend of a class can access nonpublic members of that class.
 + If the implementation of the class changes over time, its friend may also requiring changes.
 */
 
+// Exercise 23-24
+class Screen {
+public:
+    using pos = string::size_type;
+    using content_type = char;
+
+    Screen() = default;
+    Screen(pos ht, pos wd) : height(ht), width(wd), contents(ht* wd, ' ') {}
+    Screen(pos ht, pos wd, content_type c) : height(ht), width(wd), contents(ht* wd, c) {}
+
+    const content_type& get() const { return contents[cursor]; }
+    content_type& get() { return contents[cursor]; }
+    const content_type& get(pos row, pos col) const;
+    content_type& get(pos row, pos col);
+
+    Screen& move(pos row, pos col);
+private:
+    pos cursor = 0;
+    pos width = 0;
+    pos height = 0;
+    string contents;
+};
+
+inline
+const Screen::content_type& Screen::get(pos row, pos col) const {
+    return contents[row * width + col];
+}
+
+inline
+Screen::content_type& Screen::get(pos row, pos col) {
+    return contents[row * width + col];
+}
+
+inline
+Screen& Screen::move(pos row, pos col) {
+    cursor = row * width + col;
+    return *this;
+}
+
+/* Exercise 25
+* Yes, because all the data members of Screen are built-in types or string, which can rely on synthesized versions for copy and assignment.
+*/
+
 int main()
 {
     // exercise1();
 
-    // Exercise 11,12, 21
-    /*
+    // Exercise 11,12, 21, 26
+    
     Sales_data d1;
     Sales_data d2("0-201-78345-X");
     Sales_data d3("0-201-78345-X", 5, 2.5);
@@ -168,10 +217,10 @@ int main()
     print(cout, d2) << endl;
     print(cout, d3) << endl;
     print(cout, d4) << endl;
-    */
+    
     
     // Exercise 15, 22
-    
+    /*
     Person p1;
     Person p2("Zhang San");
     Person p3("Zhang San", "Earth");
@@ -181,6 +230,7 @@ int main()
     print(cout, p2) << endl;
     print(cout, p3) << endl;
     print(cout, p4) << endl;
+    */
     
 }
 
