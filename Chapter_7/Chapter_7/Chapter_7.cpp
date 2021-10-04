@@ -159,7 +159,7 @@ A friend of a class can access nonpublic members of that class.
 + If the implementation of the class changes over time, its friend may also requiring changes.
 */
 
-// Exercise 23-24
+// Exercise 23-24, 27
 class Screen {
 public:
     using pos = string::size_type;
@@ -170,12 +170,18 @@ public:
     Screen(pos ht, pos wd, content_type c) : height(ht), width(wd), contents(ht* wd, c) {}
 
     const content_type& get() const { return contents[cursor]; }
-    content_type& get() { return contents[cursor]; }
     const content_type& get(pos row, pos col) const;
-    content_type& get(pos row, pos col);
+
+    Screen& set(content_type c);
+    Screen& set(pos row, pos col, content_type c);
 
     Screen& move(pos row, pos col);
+
+    const Screen& display(ostream& os) const;
+    Screen& display(ostream& os);
 private:
+    void do_display(ostream& os) const;
+
     pos cursor = 0;
     pos width = 0;
     pos height = 0;
@@ -188,8 +194,15 @@ const Screen::content_type& Screen::get(pos row, pos col) const {
 }
 
 inline
-Screen::content_type& Screen::get(pos row, pos col) {
-    return contents[row * width + col];
+Screen& Screen::set(content_type c) {
+    contents[cursor] = c;
+    return *this;
+}
+
+inline
+Screen& Screen::set(pos row, pos col, content_type c) {
+    contents[row * width + col] = c;
+    return *this;
 }
 
 inline
@@ -198,8 +211,45 @@ Screen& Screen::move(pos row, pos col) {
     return *this;
 }
 
+inline
+const Screen& Screen::display(ostream& os) const {
+    do_display(os);
+    return *this;
+}
+
+inline
+Screen& Screen::display(ostream& os) {
+    do_display(os);
+    return *this;
+}
+
+inline
+void Screen::do_display(ostream& os) const {
+    for (pos i = 0; i != contents.size(); ++i) {
+        os << contents[i];
+        if ((i + 1) % width == 0 && i + 1 != contents.size())
+            os << "\n";
+    }
+}
+
 /* Exercise 25
 * Yes, because all the data members of Screen are built-in types or string, which can rely on synthesized versions for copy and assignment.
+*/
+
+/* Exercise 28-29
+* If then, every time we call move, 
+* set or display, the function will return a new Screen object that is
+* the copy of the original Screen object with the changes we made, while the original Screen object keeps unchanged.
+*/
+
+/* Exercise 30
+Proc:
+    * It is much more clear by using this to refer members.
+    * The parameters in member function can have the same name as the data members if we use this pointer to refer data members.
+
+Cons:
+    * The code will look redundant.
+
 */
 
 int main()
@@ -208,6 +258,7 @@ int main()
 
     // Exercise 11,12, 21, 26
     
+    /*
     Sales_data d1;
     Sales_data d2("0-201-78345-X");
     Sales_data d3("0-201-78345-X", 5, 2.5);
@@ -217,7 +268,7 @@ int main()
     print(cout, d2) << endl;
     print(cout, d3) << endl;
     print(cout, d4) << endl;
-    
+    */
     
     // Exercise 15, 22
     /*
@@ -231,7 +282,22 @@ int main()
     print(cout, p3) << endl;
     print(cout, p4) << endl;
     */
-    
+
+    // Exercise 27
+
+    Screen myScreen(5, 5, 'X');
+    myScreen.move(4, 0).set('#').display(cout);
+    cout << "\n-----\n";
+    myScreen.display(cout);
+    cout << "\n-----\n";
+
+    Screen myScreen2(5, 3);
+    const Screen blank(5, 3);
+    myScreen2.set('#').display(cout);  // calls nonconst version
+    cout << "\n-----\n";
+    blank.display(cout);  // calls const version
+    cout << "\n-----\n";
+   
 }
 
 
