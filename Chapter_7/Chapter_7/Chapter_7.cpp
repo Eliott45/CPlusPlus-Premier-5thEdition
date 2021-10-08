@@ -288,6 +288,34 @@ struct Y {
 * The return type pos is a member typedef of class Screen, thus it needs the scope operator Screen::pos.
 */
 
+/* Exercise 34
+* Then every usage of pos would be an error because of lacking definition.
+*/
+
+// Exercise 35
+typedef string Type;
+
+Type initVal(); 
+
+class Exercise {
+public:
+    typedef double Type;
+    Type setVal(Type);  
+    Type initVal();  
+private:
+    int val;
+};
+
+Exercise::Type Exercise::setVal(Type parm) {  
+//Type Exercise::setVal(Type parm) {  // Error: int Exercise::setVal(double para)
+    val = parm + initVal();
+    return val;
+}
+
+Exercise::Type Exercise::initVal() {
+    return 0;
+}
+
 int main()
 {
     // exercise1();
