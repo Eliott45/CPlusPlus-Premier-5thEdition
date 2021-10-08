@@ -15,7 +15,8 @@ public:
     Sales_data() : bookNo(""), units_sold(0), revenue(0.0) {}
     Sales_data(const string& no) : bookNo(no) {}
     Sales_data(const string& no, unsigned us, double price): bookNo(no), units_sold(us), revenue(price* us) {}
-    Sales_data(istream& is);
+    // Sales_data(istream& is);
+    Sales_data(istream& is = cin) { read(is, *this); }
 
     string isbn() const { return bookNo; }
     Sales_data& combine(const Sales_data&);
@@ -58,7 +59,7 @@ double Sales_data::avg_price() const {
     return units_sold ? revenue / units_sold : 0;
 }
 
-// Exercise 1, 3, 7, 13, 26
+// Exercise 1, 3, 7, 13, 26, 38
 string exercise1() {
     Sales_data total(cin);
     if (cin) {
@@ -81,10 +82,12 @@ string exercise1() {
     }
 }
 
+/*
 // Exercise 11
 Sales_data::Sales_data(istream& is) {
     read(is, *this);
 }
+*/
 
 // Exercise 4-5, 9
 class Person {
@@ -316,11 +319,29 @@ Exercise::Type Exercise::initVal() {
     return 0;
 }
 
+/* Exercise 36
+* The order of member initialization is the same with the order they appear in the class definition.
+* Since rem appears first, it will be initialized first. But the value of base is undefined when rem is initialized, 
+* thus the value of rem is undefined. To fix the problem, we can either switch the order of definitions of rem and base 
+* or we can use the constructor parameters i and j direct initialize rem(i % j).
+*/
+
+/* Exercise 37
+
+Sales_data first_item(cin);  // Sales_data(std::istream &is);
+int main() {
+  Sales_data next;  // Sales_data(string s = "");
+  Sales_data last("9-999-99999-9");  // Sales_data(std::string s = "");
+}
+
+*/
+
+
 int main()
 {
     // exercise1();
 
-    // Exercise 11,12, 21, 26
+    //Exercise 11,12, 21, 26
     
     /*
     Sales_data d1;
