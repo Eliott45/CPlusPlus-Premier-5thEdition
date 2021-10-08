@@ -284,6 +284,10 @@ struct Y {
     X x;
 };
 
+/* Exercise 33
+* The return type pos is a member typedef of class Screen, thus it needs the scope operator Screen::pos.
+*/
+
 int main()
 {
     // exercise1();
