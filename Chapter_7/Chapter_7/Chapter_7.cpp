@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -159,8 +160,21 @@ A friend of a class can access nonpublic members of that class.
 + If the implementation of the class changes over time, its friend may also requiring changes.
 */
 
-// Exercise 23-24, 27
+// Exercise 23-24, 27, 32
+class Screen;
+
+class Window_mgr {
+public:
+    using screen_index = vector<Screen>::size_type;
+    void clear(screen_index);
+    Window_mgr();
+private:
+   vector<Screen> screens;  //{Screen(24, 80)};
+};
+
+
 class Screen {
+friend void Window_mgr::clear(screen_index);
 public:
     using pos = string::size_type;
     using content_type = char;
@@ -232,6 +246,13 @@ void Screen::do_display(ostream& os) const {
     }
 }
 
+Window_mgr::Window_mgr() : screens{ Screen(24, 80) } {}
+
+void Window_mgr::clear(screen_index i) {
+    Screen& s = screens[i];
+    s.contents = string(s.height * s.width, ' ');
+}
+
 /* Exercise 25
 * Yes, because all the data members of Screen are built-in types or string, which can rely on synthesized versions for copy and assignment.
 */
@@ -296,6 +317,7 @@ int main()
 
     // Exercise 27
 
+    /*
     Screen myScreen(5, 5, 'X');
     myScreen.move(4, 0).set('#').display(cout);
     cout << "\n-----\n";
@@ -308,7 +330,11 @@ int main()
     cout << "\n-----\n";
     blank.display(cout);  // calls const version
     cout << "\n-----\n";
-   
+   */
+
+    // Exercise 32
+    Window_mgr window;
+    window.clear(0);
 }
 
 
