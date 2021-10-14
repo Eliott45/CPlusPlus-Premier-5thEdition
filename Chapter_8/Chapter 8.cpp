@@ -1,7 +1,8 @@
-﻿#include <iostream>
-#include <fstream>
-#include <string>
+﻿#include <fstream>
+#include <sstream>
 #include <vector>
+#include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -43,6 +44,32 @@ vector<string> exercise4(const string& filename) {
     return vs;
 }
 
+istream& exercise9(istream& is) {
+    is.clear();
+    string str;
+    while (is >> str)
+        cout << str << " ";
+    cout << endl;
+    is.clear();
+    return is;
+}
+
+void exercise10() {
+    vector<string> vs;
+    string filename;
+
+    cin >> filename;
+    ifstream in(filename);
+    if (!in) {
+        cerr << "Fail to open file: " << filename << endl;
+    }
+    for (string line; getline(in, line); vs.push_back(line)) {}
+    for (const auto& e : vs) {
+        istringstream iss(e);
+        for (string word; iss >> word; cout << word << endl) {}
+    }
+}
+
 int main()
 {
     // exercise1(cin);
@@ -55,5 +82,8 @@ int main()
     for (decltype(vs.size()) i = 0; i != vs.size(); ++i) {
         cout << i + 1 << "\t: " << vs[i] << endl;
     }
+
+    // exercise9(cin);
+    exercise10();
 }
 
