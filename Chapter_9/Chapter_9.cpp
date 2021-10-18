@@ -83,6 +83,13 @@ The constraints are:
     * the element of the container must support the < operator.
 */
 
+/* Exercise 21
+The member function insert(p, t) has the same effect on both list and vector containers, 
+but the cost is different. Inserting an element into list is cheap, while inserting an element into vector 
+will cause all the elements after the newly inserted element be moved. Thus every time the while loop body is excuted, 
+all elements in the vector are moved backward, and new element is inserted in the front of the vector.
+*/
+
 int main()
 {
     // Exercise 2
@@ -125,7 +132,59 @@ int main()
 
     cout << (v1 < v2 ? "v1 < v2" : "v2 < v1") << endl;
 
-    
+    // Exercise 18
+    /*
+    deque<string> words;
+    string word;
+    while (cin >> word && word != "stop") {
+        words.push_back(word);
+    }
+
+    for (deque<string>::const_iterator it = words.cbegin(); it != words.cend(); ++it) {
+        cout << *it << endl;
+    }
+    */
+
+    // Exercise 19
+    /*
+    list<string> words;
+    string word;
+    while (cin >> word && word != "stop") {
+        words.push_back(word);
+    }
+        
+    for (list<string>::const_iterator it = words.cbegin(); it != words.cend(); ++it) {
+        cout << *it << endl;
+    }
+    */
+
+    // Exercise 20
+    list<int> input;
+    deque<int> even, odd;
+
+    for (int i; cin >> i; ) {
+        input.push_back(i);
+    }
+        
+    for (auto it = input.cbegin(); it != input.cend(); ++it) {
+        if (*it % 2)
+            odd.push_back(*it);
+        else
+            even.push_back(*it);
+    }
+        
+    cout << "Odd: ";
+    for (const auto& i : odd) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    cout << "Even: ";
+    for (const auto& i : even) {
+        cout << i << " ";
+    }
+    cout << endl;
+
 }
 
 
