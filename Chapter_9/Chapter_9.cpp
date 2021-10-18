@@ -59,11 +59,29 @@ auto it2 = v2.begin(); - the type of `it2` is `vector<int>::const_iterator`
 auto it3 = v1.cbegin(), it4 = v2.cbegin(); - the type of `it3` and `it4` is `vector<int>::const_iterator`
 */
 
+/* Exercise 11
+  vector<int> v1;                        // Empty
+  vector<int> v2(v1);                    // Empty
+  vector<int> v3 = v1;                   // Empty
+  vector<int> v4{1, 2, 3};               // 3 elements: 1, 2, 3
+  vector<int> v5 = {1, 2, 3};            // 3 elements: 1, 2, 3
+  vector<int> v6(v5.begin(), v5.end());  // 3 elements: 1, 2, 3
+  vector<int> v7(5);                     // 5 elements: 0, 0, 0, 0, 0
+  vector<int> v8(5, 1);                  // 5 elements: 1, 1, 1, 1, 1
+*/
+
+/* Exercise 12
+The constructor that takes a container to copy requires the container type and the element type of the two containers are both match exactly.
+
+The constructor that takes two iterators requires the element type of the source container must be compatible with the element type of the destiny container.
+*/
+
 int main()
 {
     // Exercise 2
     list<deque<int>> exercise2;
 
+    /*
     // Exercise 4
     string str;
     getline(cin, str);
@@ -83,6 +101,17 @@ int main()
     else {
         cout << "Found " << *it << " at position " << it - vi.cbegin() << endl;
     }
+    */
+    
+    // Exercise 13
+    list<int> li{ 1, 2, 3 };
+    vector<int> vi{ 4, 5, 6 };
+
+    vector<double> vd1(li.begin(), li.end());
+    vector<double> vd2(vi.begin(), vi.end());
+
+    cout << vd1[0] << " " << vd2[0] << endl;
+
 }
 
 
