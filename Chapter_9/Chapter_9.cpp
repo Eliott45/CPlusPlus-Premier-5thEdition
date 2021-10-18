@@ -4,6 +4,7 @@
 #include <deque>
 #include <vector>
 #include <string>
+#include <forward_list>
 
 using namespace std;
 
@@ -111,6 +112,22 @@ while (iter != mid) {
     If elem2 or both elem1 and elem2 are the off-the-end iterator, then all elements from elem1 to the last element in the container will be removed.
 */
 
+void Exercise28(forward_list<string>& fls,
+    const string& s1,
+    const string& s2) {
+    auto pre = fls.before_begin();
+    auto cur = fls.begin();
+    while (cur != fls.end()) {
+        if (*cur == s1) {
+            fls.insert_after(cur, s2);
+            return;
+        }
+        else {
+            pre = cur++;
+        }
+    }
+    fls.insert_after(pre, s2);
+}
 
 int main()
 {
@@ -268,6 +285,49 @@ int main()
     }
     cout << endl;
 
+    // Exercise 27
+    forward_list<int> fli{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    auto pre = fli.before_begin();
+    auto cur = fli.begin();
+    while (cur != fli.end()) {
+        if (*cur % 2) {
+            cur = fli.erase_after(pre);
+        }
+        else {
+            pre = cur;
+            ++cur;
+        }
+    }
+
+    for (const auto& i : fli) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    // Exercise 28
+    forward_list<string> fls{ "s1", "s2", "s3" };
+
+    for (const auto& s : fls) {
+        cout << s << " ";
+    }
+    cout << endl;
+
+    Exercise28(fls, "s2", "s4");
+
+    for (const auto& s : fls) {
+        cout << s << " ";
+    }
+    cout << endl;
+
+    Exercise28(fls, "s5", "s6");
+
+    for (const auto& s : fls) {
+        cout << s << " ";
+    }
+    cout << endl;
+
+
+    return 0;
 }
 
 
