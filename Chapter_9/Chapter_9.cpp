@@ -40,6 +40,12 @@ vector<int>::const_iterator exercise5(vector<int>::const_iterator begin, vector<
     The iterator of list does not support iterator arithmetic, including relational operators like >, <. Thus the condition for the while loop should be iter1 != iter2.
 */
 
+// Exercise 7 vector<int>::size_type.
+
+/* Exercise 8
+* list<string>::const_iterator or list<string>::iterator to read elements.
+*/
+
 int main()
 {
     // Exercise 2
