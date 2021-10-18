@@ -3,6 +3,7 @@
 #include <list>
 #include <deque>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -76,6 +77,12 @@ The constructor that takes a container to copy requires the container type and t
 The constructor that takes two iterators requires the element type of the source container must be compatible with the element type of the destiny container.
 */
 
+/* Exercise 17
+The constraints are:
+    * the lefthand and righthand operands must have the same container type and element type.
+    * the element of the container must support the < operator.
+*/
+
 int main()
 {
     // Exercise 2
@@ -112,6 +119,13 @@ int main()
 
     cout << vd1[0] << " " << vd2[0] << endl;
 
+    // Exercise 15
+    vector<int> v1 = { 1, 3, 5, 7, 9, 12 };
+    vector<int> v2 = { 1, 3, 9 };
+
+    cout << (v1 < v2 ? "v1 < v2" : "v2 < v1") << endl;
+
+    
 }
 
 
