@@ -1,4 +1,6 @@
 ﻿#include <iostream>
+#include <list>
+#include <deque>
 
 using namespace std;
 
@@ -14,7 +16,8 @@ using namespace std;
 
 int main()
 {
-    
+    // Exercise 2
+    list<deque<int>> exercise2;
 }
 
 
