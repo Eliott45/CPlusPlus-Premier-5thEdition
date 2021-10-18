@@ -46,6 +46,19 @@ vector<int>::const_iterator exercise5(vector<int>::const_iterator begin, vector<
 * list<string>::const_iterator or list<string>::iterator to read elements.
 */
 
+/* Exercise 9
+ Those that start with a c return the const version of the related iterator. 
+ For example, begin() will return an iterator while cbegin() will return a const_iterator.
+*/
+
+/* Exercise 10
+vector<int> v1;
+const vector<int> v2;
+auto it1 = v1.begin(); - the type of `it1` is `vector<int>::iterator`
+auto it2 = v2.begin(); - the type of `it2` is `vector<int>::const_iterator`
+auto it3 = v1.cbegin(), it4 = v2.cbegin(); - the type of `it3` and `it4` is `vector<int>::const_iterator`
+*/
+
 int main()
 {
     // Exercise 2
