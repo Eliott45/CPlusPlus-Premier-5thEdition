@@ -90,6 +90,21 @@ will cause all the elements after the newly inserted element be moved. Thus ever
 all elements in the vector are moved backward, and new element is inserted in the front of the vector.
 */
 
+/* Exercise 22
+vector<int>::iterator iter = iv.begin(),
+                      mid = iv.begin() + iv.size()/2;
+while (iter != mid) {
+  if (*iter == some_val) {
+    iv.insert(iter, 2 * some_val);  // Error, we should update the iter
+    iter = iv.insert(iter, 2 * some_val);
+    ++iter;  // Increament to point to the original value
+  }
+  ++iter;  // Increment to point to the next value
+}
+*/
+
+// Exercise 23 - The values of them are all copies of c[0].
+
 int main()
 {
     // Exercise 2
@@ -185,6 +200,18 @@ int main()
     }
     cout << endl;
 
+
+    /* Exercise 24 
+    vector<int> vi;
+
+    // All of them will cause program terminate in VS2015.
+    //int i1 = vi.at(0);
+    //int i2 = vi[0];
+    //int i3 = vi.front();
+    //int i4 = *vi.begin();
+
+    //cout << i1 << " " << i2 << " " << i3 << " " << i4 << endl;
+    */
 }
 
 
