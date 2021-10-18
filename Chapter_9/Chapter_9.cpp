@@ -105,6 +105,13 @@ while (iter != mid) {
 
 // Exercise 23 - The values of them are all copies of c[0].
 
+/* Exercise 25
+    If elem1 and elem2 are equal, then no element will be removed from the container.
+
+    If elem2 or both elem1 and elem2 are the off-the-end iterator, then all elements from elem1 to the last element in the container will be removed.
+*/
+
+
 int main()
 {
     // Exercise 2
@@ -174,6 +181,7 @@ int main()
     */
 
     // Exercise 20
+    /*
     list<int> input;
     deque<int> even, odd;
 
@@ -199,7 +207,7 @@ int main()
         cout << i << " ";
     }
     cout << endl;
-
+    */
 
     /* Exercise 24 
     vector<int> vi;
@@ -212,6 +220,54 @@ int main()
 
     //cout << i1 << " " << i2 << " " << i3 << " " << i4 << endl;
     */
+
+    // Exercise 26
+    int ia[] = { 0, 1, 1, 2, 3, 5, 8, 13, 21, 55, 89 };
+    vector<int> iv(begin(ia), end(ia));
+    list<int> il(begin(ia), end(ia));
+
+    cout << "Before erase:" << endl;
+    cout << "vector iv: ";
+    for (const auto& i : iv) {
+       cout << i << " ";
+    }
+    cout << endl;
+
+    cout << "list   il: ";
+    for (const auto& i : il) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    for (auto it = iv.begin(); it != iv.end(); ) {
+        if (*it % 2) {
+            ++it;
+        } else {
+            it = iv.erase(it);
+        }    
+    }
+    for (auto it = il.begin(); it != il.end(); ) {
+        if (*it % 2) {
+            it = il.erase(it);
+        } 
+        else {
+            ++it;
+        }
+    }
+    
+    cout << "After erase:" << endl;
+    cout << "vector iv: ";
+    for (const auto& i : iv) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    cout << "list   il: ";
+    for (const auto& i : il) {
+        cout << i << " ";
+    }
+    cout << endl;
+
 }
 
 
